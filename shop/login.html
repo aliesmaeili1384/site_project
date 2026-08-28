@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ورود /  ثبت نام</title>
+    <link rel="icon" type="images/png" href="images/open.jpg">
+
+
+    <!-- فونت -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+    <!-- فونت -->
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap">
+
+
+    <!-- استایل -->
+
+    <link rel="stylesheet"
+          href="css/login.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- سربرگ -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <img src="images/logo.png"
+                 alt="لوگوی فروشگاه">
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ورود -->
+
+    <main class="login-container">
+
+
+        <div class="login-box">
+
+
+            <!-- کاربر -->
+
+            <div class="user-icon">
+
+                <i class="fas fa-user"></i>
+
+            </div>
+
+
+
+            <!-- عنوان -->
+
+            <h1 id="form-title">
+
+                ورود به حساب کاربری
+
+            </h1>
+
+
+
+            <!-- تب -->
+
+            <div class="form-tabs">
+
+
+                <button
+                    type="button"
+                    class="tab active"
+                    id="login-tab">
+
+                    ورود
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="tab"
+                    id="register-tab">
+
+                    ثبت نام
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- پیام -->
+
+            <div id="message"
+                 class="message">
+
+            </div>
+
+
+
+            <!-- فرم -->
+
+            <form id="login-form"
+                  class="form active-form">
+
+
+                <!-- تلفن -->
+
+                <div class="input-box">
+
+                    <i class="fas fa-phone"></i>
+
+                    <input
+                        type="tel"
+                        id="login-phone"
+                        placeholder="شماره تلفن همراه"
+                        maxlength="11"
+                        required>
+
+                </div>
+                
+
+
+
+                <!-- رمز -->
+
+                <div class="input-box">
+
+                    <i class="fas fa-lock"></i>
+
+                    <input
+                        type="password"
+                        id="login-password"
+                        placeholder="رمز عبور"
+                        maxlength="30"
+                        required>
+
+                </div>
+
+
+
+                <!-- یادآوری -->
+
+                <div class="remember">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="remember">
+
+                        مرا به خاطر بسپار
+
+                    </label>
+
+
+                    <a href="#">
+
+                        فراموشی رمز عبور؟
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- دکمه -->
+
+                <button
+                    type="submit"
+                    class="main-button">
+
+                    ورود
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- فرم -->
+
+            <form id="register-form"
+                  class="form">
+
+
+                <!-- نام -->
+
+                <div class="input-box">
+
+                    <i class="fas fa-user"></i>
+
+                    <input
+                        type="text"
+                        id="first-name"
+                        placeholder="نام"
+                        maxlength="30"
+                        required>
+
+                </div>
+
+
+
+                <!-- نام خانوادگی -->
+
+                <div class="input-box">
+
+                    <i class="fas fa-user"></i>
+
+                    <input
+                        type="text"
+                        id="last-name"
+                        placeholder="نام خانوادگی"
+                        maxlength="50"
+                        required>
+
+                </div>
+
+
+
+                <!-- تلفن -->
+
+                <div class="input-box">
+
+                    <i class="fas fa-phone"></i>
+
+                    <input
+                        type="tel"
+                        id="register-phone"
+                        placeholder="شماره تلفن همراه"
+                        maxlength="11"
+                        required>
+
+                </div>
+
+                <!-- آدرس -->
+
+<div class="input-box">
+
+    <i class="fas fa-location-dot"></i>
+
+    <input
+        type="text"
+        id="register-address"
+        placeholder="آدرس"
+        maxlength="200"
+        required>
+
+</div>
+
+
+
+                <!-- رمز -->
+
+                <div class="input-box">
+
+                    <i class="fas fa-lock"></i>
+
+                    <input
+                        type="password"
+                        id="register-password"
+                        placeholder="رمز عبور"
+                        maxlength="30"
+                        required>
+
+                </div>
+
+
+
+                <!-- تکرار -->
+
+                <div class="input-box">
+
+                    <i class="fas fa-lock"></i>
+
+                    <input
+                        type="password"
+                        id="confirm-password"
+                        placeholder="تکرار رمز عبور"
+                        maxlength="30"
+                        required>
+
+                </div>
+
+
+
+                <!-- دکمه -->
+
+                <button
+                    type="submit"
+                    class="main-button">
+
+                    ثبت نام
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- بازگشت -->
+
+            <a href="shop.html"
+               class="back-store">
+
+                <i class="fas fa-arrow-right"></i>
+
+                بازگشت به فروشگاه
+
+            </a>
+
+
+        </div>
+
+
+    </main>
+
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>

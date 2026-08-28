@@ -1,0 +1,530 @@
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* بدنه */
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            black,
+            #d4af37,
+            black,
+            #d4af37,
+            black,
+            #d4af37,
+            black
+        );
+
+    font-family:
+        'Vazirmatn',
+        Tahoma,
+        sans-serif;
+
+    color: white;
+}
+
+
+/* سربرگ */
+
+.header {
+
+    width: 100%;
+
+    height: 110px;
+
+    background: black;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-bottom:
+        2px solid
+        #d4af37;
+
+    box-shadow:
+        0 4px 20px
+        rgba(212, 175, 55, 0.6);
+}
+
+
+.logo img {
+
+    width: 95px;
+
+    height: 95px;
+
+    object-fit: contain;
+}
+
+
+/* ورود */
+
+.login-container {
+
+    min-height:
+        calc(100vh - 110px);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 40px 20px;
+}
+
+
+/* کادر */
+
+.login-box {
+
+    width: 450px;
+
+    max-width: 100%;
+
+    background: #050505;
+
+    border:
+        2px solid
+        #d4af37;
+
+    border-radius: 25px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    box-shadow:
+
+        0 15px 40px
+        rgba(0, 0, 0, 0.8),
+
+        0 0 25px
+        rgba(212, 175, 55, 0.35);
+}
+
+
+/* کاربر */
+
+.user-icon {
+
+    width: 85px;
+
+    height: 85px;
+
+    margin:
+        0 auto 20px;
+
+    border:
+        2px solid
+        #d4af37;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #d4af37;
+
+    font-size: 36px;
+
+    box-shadow:
+        0 0 20px
+        rgba(212, 175, 55, 0.2);
+}
+
+
+/* عنوان */
+
+.login-box h1 {
+
+    color: #d4af37;
+
+    font-size: 25px;
+
+    margin-bottom: 25px;
+}
+
+
+/* زبانه */
+
+.form-tabs {
+
+    display: flex;
+
+    background: #111;
+
+    border-radius: 12px;
+
+    padding: 5px;
+
+    margin-bottom: 25px;
+}
+
+
+.tab {
+
+    width: 50%;
+
+    padding: 11px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #aaa;
+
+    font-family:
+        'Vazirmatn',
+        Tahoma,
+        sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    border-radius: 9px;
+
+    transition: 0.3s;
+}
+
+
+.tab.active {
+
+    background: #d4af37;
+
+    color: black;
+
+    box-shadow:
+        0 0 15px
+        rgba(212, 175, 55, 0.3);
+}
+
+
+/* فرم */
+
+.form {
+
+    display: none;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+.form.active-form {
+
+    display: flex;
+}
+
+
+/* ورودی */
+
+.input-box {
+
+    position: relative;
+
+    width: 100%;
+}
+
+
+.input-box i {
+
+    position: absolute;
+
+    right: 15px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    color: #d4af37;
+
+    font-size: 16px;
+}
+
+
+.input-box input {
+
+    width: 100%;
+
+    height: 48px;
+
+    background: #111;
+
+    border:
+        1px solid
+        #333;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    color: white;
+
+    font-family:
+        'Vazirmatn',
+        Tahoma,
+        sans-serif;
+
+    font-size: 14px;
+
+    padding:
+        0 45px
+        0 15px;
+
+    transition: 0.3s;
+}
+
+
+.input-box input:focus {
+
+    border-color:
+        #d4af37;
+
+    box-shadow:
+        0 0 10px
+        rgba(212, 175, 55, 0.2);
+}
+
+
+.input-box input::placeholder {
+
+    color: #777;
+}
+
+
+/* یادآوری */
+
+.remember {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    font-size: 12px;
+
+    color: #aaa;
+
+    margin-top: -5px;
+}
+
+
+.remember label {
+
+    cursor: pointer;
+}
+
+
+.remember input {
+
+    accent-color:
+        #d4af37;
+}
+
+
+.remember a {
+
+    color:
+        #d4af37;
+
+    text-decoration: none;
+}
+
+
+.remember a:hover {
+
+    text-decoration: underline;
+}
+
+
+/* دکمه */
+
+.main-button {
+
+    width: 100%;
+
+    height: 48px;
+
+    margin-top: 5px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d4af37,
+            #b89424
+        );
+
+    color: black;
+
+    font-family:
+        'Vazirmatn',
+        Tahoma,
+        sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.main-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 0 20px
+        rgba(212, 175, 55, 0.6);
+}
+
+
+/* بازگشت */
+
+.back-store {
+
+    display: inline-block;
+
+    margin-top: 25px;
+
+    color: #aaa;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+}
+
+
+.back-store i {
+
+    margin-left: 7px;
+
+    color: #d4af37;
+}
+
+
+.back-store:hover {
+
+    color: #d4af37;
+}
+
+
+/* موبایل */
+
+@media (max-width: 500px) {
+
+    .login-box {
+
+        padding: 25px 20px;
+
+        border-radius: 20px;
+    }
+
+
+    .login-box h1 {
+
+        font-size: 21px;
+    }
+
+
+    .user-icon {
+
+        width: 70px;
+
+        height: 70px;
+
+        font-size: 30px;
+    }
+
+}
+
+/* پیام */
+
+.message {
+
+    min-height: 0;
+
+    margin-bottom: 0;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    transition: 0.3s;
+
+}
+
+
+/* خطا */
+
+.message.error {
+
+    padding: 10px;
+
+    margin-bottom: 15px;
+
+    background: #251010;
+
+    border: 1px solid #6b2222;
+
+    color: #ff9999;
+
+}
+
+
+/* موفقیت */
+
+.message.success {
+
+    padding: 10px;
+
+    margin-bottom: 15px;
+
+    background: #102510;
+
+    border: 1px solid #286b28;
+
+    color: #9cff9c;
+
+}
+.input-box input[type="tel"] {
+    direction: rtl;
+    text-align: right;
+}
+

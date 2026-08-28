@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>سبد خرید</title>
+    <link rel="icon" type="images/png" href="images/cart.jpg">
+
+
+    <!-- فونت -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+    <!-- فونت -->
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap">
+
+
+    <!-- استایل -->
+
+    <link rel="stylesheet"
+          href="css/cart.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- سربرگ -->
+
+    <header class="header">
+
+
+        <!-- لوگو -->
+
+        <div class="logo">
+
+            <img
+                src="images/logo.png"
+                alt="لوگوی فروشگاه">
+
+        </div>
+
+
+        <!-- بازگشت -->
+
+        <a
+            href="shop.html"
+            class="back-button">
+
+            <i class="fas fa-arrow-right"></i>
+
+            فروشگاه
+
+        </a>
+
+
+    </header>
+
+
+
+    <!-- سبد خرید -->
+
+    <main class="cart-container">
+
+
+        <!-- عنوان -->
+
+        <div class="cart-title">
+
+            <i class="fas fa-shopping-cart"></i>
+
+            <h1>
+                سبد خرید
+            </h1>
+
+        </div>
+
+
+
+        <!-- محتوای سبد -->
+
+        <div class="cart-content">
+
+
+            <!-- محصولات -->
+
+            <section
+                class="cart-products"
+                id="cart-products">
+
+                <!--
+                    محصولات توسط cart.js
+                    به صورت خودکار اینجا قرار می‌گیرند.
+                -->
+
+            </section>
+
+
+
+            <!-- خلاصه -->
+
+            <aside class="cart-summary">
+
+
+                <h2>
+                    خلاصه سفارش
+                </h2>
+
+
+
+                <!-- تعداد -->
+
+                <div class="summary-line">
+
+                    <span>
+                        تعداد کالا
+                    </span>
+
+                    <strong id="cart-count">
+                        ۰ کالا
+                    </strong>
+
+                </div>
+
+
+
+                <!-- مبلغ -->
+
+                <div class="summary-line">
+
+                    <span>
+                        مبلغ کالاها
+                    </span>
+
+                    <strong id="cart-subtotal">
+                        ۰ تومان
+                    </strong>
+
+                </div>
+
+
+
+                <!-- ارسال -->
+
+                <div class="summary-line">
+
+                    <span>
+                        هزینه ارسال
+                    </span>
+
+                    <strong>
+                        رایگان
+                    </strong>
+
+                </div>
+
+
+
+                <!-- نهایی -->
+
+                <div class="summary-line total">
+
+                    <span>
+                        مبلغ نهایی
+                    </span>
+
+                    <strong id="cart-total">
+                        ۰ تومان
+                    </strong>
+
+                </div>
+
+
+
+                <!-- پرداخت -->
+
+                <button
+                    class="checkout-button"
+                    id="checkout-button">
+
+                    <i class="fas fa-credit-card"></i>
+
+                    ادامه فرایند خرید
+
+                </button>
+
+
+
+                <!-- ادامه خرید -->
+
+                <a
+                    href="shop.html"
+                    class="continue-shopping">
+
+                    <i class="fas fa-arrow-right"></i>
+
+                    ادامه خرید
+
+                </a>
+
+
+            </aside>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- پایین -->
+
+    <footer class="footer">
+
+
+        <!-- فروشگاه -->
+
+        <a
+            href="shop.html"
+            class="footer-item">
+
+            <i class="fas fa-store"></i>
+
+            <span>
+                فروشگاه
+            </span>
+
+        </a>
+
+
+
+        <!-- سبد -->
+
+        <a
+            href="cart.html"
+            class="footer-item active">
+
+            <i class="fas fa-shopping-cart"></i>
+
+            <span>
+                سبد خرید
+            </span>
+
+        </a>
+
+
+
+        <!-- حساب -->
+
+        <a
+            href="login.html"
+            class="footer-item">
+
+            <i class="fas fa-user"></i>
+
+            <span>
+                حساب کاربری
+            </span>
+
+        </a>
+
+
+    </footer>
+
+    <script src="js/cart.js"></script>
+
+
+</body>
+
+</html>

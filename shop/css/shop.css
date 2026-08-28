@@ -1,0 +1,775 @@
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* بدنه */
+
+body {
+
+    background: linear-gradient(
+        135deg,
+        black,
+        #d4af37,
+        black,
+        black,
+        #d4af37,
+        black,
+        black,
+        #d4af37,
+        black,
+        black
+    );
+
+    background-size: cover;
+
+    background-attachment: fixed;
+
+    font-family:
+        'Vazirmatn',
+        Tahoma,
+        sans-serif;
+
+    direction: rtl;
+
+    color: #ffffff;
+
+    min-height: 100vh;
+
+    -webkit-font-smoothing: antialiased;
+
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* هدر */
+
+.header {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 110px;
+
+    background-color: black;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-bottom:
+        2px solid
+        rgb(255, 215, 0);
+
+    box-shadow:
+        0 4px 15px
+        rgba(255, 215, 0, 0.855);
+
+    z-index: 1000;
+}
+
+
+/* لوگو */
+
+.logo img {
+
+    width: 95px;
+
+    height: 95px;
+
+    object-fit: contain;
+}
+
+
+/* جستجو */
+
+.search-icon {
+
+    position: absolute;
+
+    left: 20px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition:
+        all 0.3s ease;
+
+    padding: 5px 10px;
+
+    border-radius: 10px;
+}
+
+
+.search-icon:hover {
+
+    color:
+        rgb(255, 215, 0);
+
+    transform:
+        translate(0, -50%)
+        translateY(-5px);
+}
+
+
+.search-icon i {
+
+    font-size: 22px;
+
+    margin-bottom: 3px;
+}
+
+
+.search-icon span {
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+/* معرفی */
+
+.hero {
+
+    width: 1000px;
+
+    max-width:
+        calc(100% - 40px);
+
+    min-height: 200px;
+
+    margin:
+        125px auto 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #000000,
+            #151515,
+            #2b2108
+        );
+
+    border:
+        3px solid
+        rgb(255, 215, 0);
+
+    border-radius: 25px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.7),
+
+        0 0 20px
+        rgba(255, 215, 0, 0.25);
+}
+
+
+.hero-content {
+
+    max-width: 700px;
+
+    padding: 30px;
+}
+
+
+.hero h1 {
+
+    color:
+        rgb(255, 215, 0);
+
+    font-size: 32px;
+
+    margin-bottom: 15px;
+}
+
+
+.hero p {
+
+    color: #ddd;
+
+    font-size: 17px;
+
+    line-height: 2;
+}
+
+
+/* بنر طلایی */
+
+.gold-banner {
+
+    width: 700px;
+
+    max-width:
+        calc(100% - 40px);
+
+    min-height: 200px;
+
+    margin:
+        20px auto 100px;
+
+    background-color: #050505;
+
+    border:
+        3px solid
+        rgb(255, 215, 0);
+
+    border-radius: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.7),
+
+        0 0 20px
+        rgba(255, 215, 0, 0.25);
+}
+
+
+.gold-banner h2 {
+
+    color:
+        rgb(255, 215, 0);
+
+    font-size: 26px;
+
+    margin-bottom: 12px;
+}
+
+
+.gold-banner p {
+
+    color: #ccc;
+
+    font-size: 15px;
+
+    line-height: 2;
+
+    max-width: 650px;
+}
+
+
+/* دکمه بنر */
+
+.gold-banner button {
+
+    margin-top: 20px;
+
+    background-color:
+        rgb(255, 215, 0);
+
+    color: black;
+
+    border: none;
+
+    border-radius: 25px;
+
+    padding:
+        11px 35px;
+
+    font-family:
+        'Vazirmatn',
+        Tahoma,
+        sans-serif;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.gold-banner button:hover {
+
+    transform:
+        scale(1.05);
+
+    box-shadow:
+        0 0 20px
+        rgba(255, 215, 0, 0.6);
+}
+
+
+/* محصولات */
+
+.product-section {
+
+    scroll-margin-top: 130px;
+
+    margin-bottom: 130px;
+}
+
+
+.products-title {
+
+    text-align: center;
+
+    color:
+        rgb(255, 215, 0);
+
+    font-size: 40px;
+
+    margin-bottom: 15px;
+}
+
+
+/* شبکه محصولات */
+
+.product {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+
+    padding: 20px;
+
+    justify-items: center;
+}
+
+
+/* تبلت */
+
+@media (min-width: 600px) {
+
+    .product {
+
+        grid-template-columns:
+            repeat(
+                3,
+                minmax(180px, 200px)
+            );
+
+        justify-content: center;
+    }
+
+}
+
+
+/* دسکتاپ */
+
+@media (min-width: 1150px) {
+
+    .product {
+
+        max-width: 1150px;
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+        grid-template-columns:
+            repeat(5, 200px);
+    }
+
+}
+
+
+/* کارت محصول */
+
+.prod {
+
+    width: 100%;
+
+    max-width: 200px;
+
+    min-height: 300px;
+
+    background-color: black;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border-bottom:
+        3px solid
+        rgb(255, 215, 0);
+
+    border-right:
+        3px solid
+        rgb(255, 215, 0);
+
+    box-shadow:
+
+        0 10px 30px
+        rgba(0, 0, 0, 0.7),
+
+        0 0 20px
+        rgba(255, 215, 0, 0.25);
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.prod:hover {
+
+    transform:
+        scale(1.05);
+}
+
+
+/* تصویر محصول */
+
+.prod img {
+
+    width: 100%;
+
+    height: 200px;
+
+    object-fit: cover;
+}
+
+
+/* نام محصول */
+
+.prod .name {
+
+    margin-top: auto;
+
+    font-size: 18px;
+
+    font-weight: 1000;
+
+    color: silver;
+
+    padding:
+        10px
+        10px
+        5px
+        10px;
+
+    text-align: center;
+}
+
+
+/* قیمت محصول */
+
+.prod .price {
+
+    font-size: 16px;
+
+    color:
+        rgb(255, 215, 0);
+
+    font-weight: 700;
+
+    text-align: center;
+
+    padding-bottom: 10px;
+}
+
+
+/* افزودن به سبد */
+
+.add-cart {
+
+    width:
+        calc(100% - 20px);
+
+    margin:
+        0 10px 10px 10px;
+
+    padding: 9px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        rgb(255, 215, 0);
+
+    color: black;
+
+    font-family:
+        'Vazirmatn',
+        Tahoma,
+        sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.add-cart i {
+
+    margin-left: 5px;
+}
+
+
+.add-cart:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 0 15px
+        rgba(255, 215, 0, 0.6);
+}
+
+
+/* پایین صفحه */
+
+.footer {
+
+    position: fixed;
+
+    bottom: 20px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 95%;
+
+    max-width: 700px;
+
+    height: 65px;
+
+    background-color: black;
+
+    border:
+        2px solid
+        rgb(255, 215, 0);
+
+    border-radius: 100px;
+
+    box-shadow:
+
+        0 10px 30px
+        rgba(0, 0, 0, 0.7),
+
+        0 0 20px
+        rgba(255, 215, 0, 0.25);
+
+    display: flex;
+
+    justify-content: space-around;
+
+    align-items: center;
+
+    z-index: 1000;
+
+    padding: 0 10px;
+}
+
+
+/* آیتم پایین صفحه */
+
+.footer-item {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition:
+        all 0.3s ease;
+
+    padding:
+        5px 15px;
+
+    border-radius: 10px;
+
+    position: relative;
+
+    text-decoration: none;
+}
+
+
+.footer-item:hover,
+.footer-item:visited,
+.footer-item:active {
+
+    text-decoration: none;
+}
+
+
+.footer-item:hover {
+
+    color:
+        rgb(255, 215, 0);
+
+    transform:
+        translateY(-5px);
+}
+
+
+.footer-item i {
+
+    font-size: 24px;
+
+    margin-bottom: 3px;
+}
+
+
+.footer-item span {
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+/* آیتم فعال */
+
+.footer-item.active {
+
+    color:
+        rgb(255, 215, 0);
+
+    text-decoration: none;
+}
+
+
+/* نشان سبد */
+
+.cart-badge {
+
+    position: absolute;
+
+    top: -5px;
+
+    right: 5px;
+
+    width: 20px;
+
+    height: 20px;
+
+    background:
+        #d4af37;
+
+    color: black;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 0 10px
+        rgba(212, 175, 55, 0.7);
+}
+
+
+/* پیام سبد */
+
+.cart-message {
+
+    position: fixed;
+
+    top: 130px;
+
+    right: 50%;
+
+    transform:
+        translateX(50%)
+        translateY(-20px);
+
+    background: black;
+
+    border:
+        2px solid
+        #d4af37;
+
+    color:
+        #d4af37;
+
+    padding:
+        12px 25px;
+
+    border-radius: 12px;
+
+    font-size: 13px;
+
+    opacity: 0;
+
+    transition: 0.3s;
+
+    z-index: 9999;
+
+    box-shadow:
+        0 0 20px
+        rgba(212, 175, 55, 0.4);
+}
+
+
+.cart-message.show {
+
+    opacity: 1;
+
+    transform:
+        translateX(50%)
+        translateY(0);
+}
