@@ -59,13 +59,15 @@ body {
 
 .logo img {
 
-    width: 95px;
+    width: 180px;
 
-    height: 95px;
+    height: 119px;
 
     object-fit: contain;
 
+    margin-top: 5pxS;
 }
+
 
 .account-container {
 

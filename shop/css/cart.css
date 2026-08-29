@@ -55,11 +55,16 @@ body {
     z-index: 1000; 
 } 
 
-.logo img { 
-    width: 95px; 
-    height: 95px; 
-    object-fit: contain; 
-} 
+.logo img {
+
+    width: 180px;
+
+    height: 119px;
+
+    object-fit: contain;
+
+    margin-top: 5pxS;
+}
 
 .back-button { 
     position: absolute; 
