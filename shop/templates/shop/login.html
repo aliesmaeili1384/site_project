@@ -1,3 +1,6 @@
+
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
@@ -8,8 +11,11 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>ورود /  ثبت نام</title>
-    <link rel="icon" type="images/png" href="images/open.jpg">
+    <title>ورود / ثبت نام</title>
+
+    <link rel="icon"
+          type="image/png"
+          href="{% static 'shop/images/open.jpg' %}">
 
 
     <!-- فونت -->
@@ -18,7 +24,7 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 
-    <!-- فونت -->
+    <!-- وزیر -->
 
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap">
@@ -27,7 +33,7 @@
     <!-- استایل -->
 
     <link rel="stylesheet"
-          href="css/login.css">
+          href="{% static 'shop/css/login.css' %}">
 
 </head>
 
@@ -41,7 +47,7 @@
 
         <div class="logo">
 
-            <img src="images/logo.png"
+            <img src="{% static 'shop/images/logo.png' %}"
                  alt="لوگوی فروشگاه">
 
         </div>
@@ -116,7 +122,7 @@
 
 
 
-            <!-- فرم -->
+            <!-- فرم ورود -->
 
             <form id="login-form"
                   class="form active-form">
@@ -136,7 +142,6 @@
                         required>
 
                 </div>
-                
 
 
 
@@ -197,7 +202,7 @@
 
 
 
-            <!-- فرم -->
+            <!-- فرم ثبت نام -->
 
             <form id="register-form"
                   class="form">
@@ -252,20 +257,22 @@
 
                 </div>
 
+
+
                 <!-- آدرس -->
 
-<div class="input-box">
+                <div class="input-box">
 
-    <i class="fas fa-location-dot"></i>
+                    <i class="fas fa-location-dot"></i>
 
-    <input
-        type="text"
-        id="register-address"
-        placeholder="آدرس"
-        maxlength="200"
-        required>
+                    <input
+                        type="text"
+                        id="register-address"
+                        placeholder="آدرس"
+                        maxlength="200"
+                        required>
 
-</div>
+                </div>
 
 
 
@@ -320,7 +327,7 @@
 
             <!-- بازگشت -->
 
-            <a href="shop.html"
+            <a href="{% url 'shop_home' %}"
                class="back-store">
 
                 <i class="fas fa-arrow-right"></i>
@@ -335,8 +342,13 @@
 
     </main>
 
-    <script src="js/login.js"></script>
+
+    <!-- JavaScript -->
+
+    <script src="{% static 'shop/js/login.js' %}"></script>
+
 
 </body>
 
 </html>
+

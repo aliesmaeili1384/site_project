@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
@@ -9,7 +11,10 @@
           content="width=device-width, initial-scale=1.0">
 
     <title>سبد خرید</title>
-    <link rel="icon" type="images/png" href="images/cart.jpg">
+
+    <link rel="icon"
+          type="image/png"
+          href="{% static 'shop/images/cart.jpg' %}">
 
 
     <!-- فونت -->
@@ -18,16 +23,16 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 
-    <!-- فونت -->
+    <!-- وزیر -->
 
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap">
 
 
-    <!-- استایل -->
+    <!-- CSS -->
 
     <link rel="stylesheet"
-          href="css/cart.css">
+          href="{% static 'shop/css/cart.css' %}">
 
 </head>
 
@@ -39,22 +44,21 @@
 
     <header class="header">
 
-
         <!-- لوگو -->
 
         <div class="logo">
 
             <img
-                src="images/logo.png"
+                src="{% static 'shop/images/logo.png' %}"
                 alt="لوگوی فروشگاه">
 
         </div>
 
 
-        <!-- بازگشت -->
+        <!-- بازگشت به فروشگاه -->
 
         <a
-            href="shop.html"
+            href="{% url 'shop_home' %}"
             class="back-button">
 
             <i class="fas fa-arrow-right"></i>
@@ -62,7 +66,6 @@
             فروشگاه
 
         </a>
-
 
     </header>
 
@@ -98,11 +101,6 @@
                 class="cart-products"
                 id="cart-products">
 
-                <!--
-                    محصولات توسط cart.js
-                    به صورت خودکار اینجا قرار می‌گیرند.
-                -->
-
             </section>
 
 
@@ -111,14 +109,10 @@
 
             <aside class="cart-summary">
 
-
                 <h2>
                     خلاصه سفارش
                 </h2>
 
-
-
-                <!-- تعداد -->
 
                 <div class="summary-line">
 
@@ -133,9 +127,6 @@
                 </div>
 
 
-
-                <!-- مبلغ -->
-
                 <div class="summary-line">
 
                     <span>
@@ -148,9 +139,6 @@
 
                 </div>
 
-
-
-                <!-- ارسال -->
 
                 <div class="summary-line">
 
@@ -165,9 +153,6 @@
                 </div>
 
 
-
-                <!-- نهایی -->
-
                 <div class="summary-line total">
 
                     <span>
@@ -181,9 +166,6 @@
                 </div>
 
 
-
-                <!-- پرداخت -->
-
                 <button
                     class="checkout-button"
                     id="checkout-button">
@@ -195,11 +177,10 @@
                 </button>
 
 
-
                 <!-- ادامه خرید -->
 
                 <a
-                    href="shop.html"
+                    href="{% url 'shop_home' %}"
                     class="continue-shopping">
 
                     <i class="fas fa-arrow-right"></i>
@@ -207,7 +188,6 @@
                     ادامه خرید
 
                 </a>
-
 
             </aside>
 
@@ -227,7 +207,7 @@
         <!-- فروشگاه -->
 
         <a
-            href="shop.html"
+            href="{% url 'shop_home' %}"
             class="footer-item">
 
             <i class="fas fa-store"></i>
@@ -243,7 +223,7 @@
         <!-- سبد -->
 
         <a
-            href="cart.html"
+            href="{% url 'cart' %}"
             class="footer-item active">
 
             <i class="fas fa-shopping-cart"></i>
@@ -273,7 +253,10 @@
 
     </footer>
 
-    <script src="js/cart.js"></script>
+
+    <!-- JavaScript -->
+
+    <script src="{% static 'shop/js/cart.js' %}"></script>
 
 
 </body>

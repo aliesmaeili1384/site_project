@@ -1,10 +1,11 @@
+{% load static %}
+
 <!DOCTYPE html>
 
 <html lang="fa" dir="rtl">
 
 <head>
 
-```
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -12,25 +13,21 @@
 
 <title>صفحۀ فروشگاه تایم لوکس</title>
 
-<link rel="icon" type="images/png" href="images/shop.jpg">
+<link rel="icon"
+      type="image/png"
+      href="{% static 'shop/images/shop.jpg' %}">
 
-
-<!-- فونت -->
-
+<!-- فونت Font Awesome -->
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-
-<!-- وزیر -->
-
+<!-- فونت وزیر -->
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap">
 
-
 <!-- استایل -->
-
 <link rel="stylesheet"
-      href="css/shop.css">
+      href="{% static 'shop/css/shop.css' %}">
 ```
 
 </head>
@@ -44,13 +41,12 @@
 
     <div class="logo">
 
-        <img src="images/logo.png"
-             alt="لوگوی فروشگاه">
+        <img src="{% static 'shop/images/logo.png' %}"
+             alt="لوگو">
 
     </div>
 
 </header>
-
 
 
 <!-- معرفی -->
@@ -73,7 +69,6 @@
 </section>
 
 
-
 <!-- بنر -->
 
 <section class="gold-banner">
@@ -88,7 +83,6 @@
         و جلوه‌ای خاص به استایل خود ببخشید.
     </p>
 
-
     <button
         onclick="document.getElementById('products').scrollIntoView({ behavior: 'smooth' })">
 
@@ -99,12 +93,10 @@
 </section>
 
 
-
 <!-- محصولات -->
 
 <section class="product-section"
          id="products">
-
 
     <h2 class="products-title">
 
@@ -113,13 +105,12 @@
     </h2>
 
 
-
-    <!-- شبکه -->
+    <!-- شبکه محصولات -->
 
     <div class="product">
 
 
-        <!-- محصول -->
+        <!-- محصول 1 -->
 
         <div class="prod"
 
@@ -129,12 +120,10 @@
 
              data-price="250000"
 
-             data-image="images/1.jpg">
+             data-image="{% static 'shop/images/1.jpg' %}">
 
-
-            <img src="images/1.jpg"
+            <img src="{% static 'shop/images/1.jpg' %}"
                  alt="ساعت کلاسیک">
-
 
             <span class="name">
 
@@ -142,13 +131,11 @@
 
             </span>
 
-
             <span class="price">
 
                 ۲۵۰,۰۰۰ تومان
 
             </span>
-
 
             <button class="add-cart">
 
@@ -161,8 +148,7 @@
         </div>
 
 
-
-        <!-- محصول -->
+        <!-- محصول 2 -->
 
         <div class="prod"
 
@@ -172,12 +158,10 @@
 
              data-price="320000"
 
-             data-image="images/2.jpg">
+             data-image="{% static 'shop/images/2.jpg' %}">
 
-
-            <img src="images/2.jpg"
+            <img src="{% static 'shop/images/2.jpg' %}"
                  alt="ساعت اسپرت">
-
 
             <span class="name">
 
@@ -185,13 +169,11 @@
 
             </span>
 
-
             <span class="price">
 
                 ۳۲۰,۰۰۰ تومان
 
             </span>
-
 
             <button class="add-cart">
 
@@ -204,8 +186,7 @@
         </div>
 
 
-
-        <!-- محصول -->
+        <!-- محصول 3 -->
 
         <div class="prod"
 
@@ -215,12 +196,10 @@
 
              data-price="180000"
 
-             data-image="images/3.jpg">
+             data-image="{% static 'shop/images/3.jpg' %}">
 
-
-            <img src="images/3.jpg"
+            <img src="{% static 'shop/images/3.jpg' %}"
                  alt="ساعت لوکس">
-
 
             <span class="name">
 
@@ -228,13 +207,11 @@
 
             </span>
 
-
             <span class="price">
 
                 ۱۸۰,۰۰۰ تومان
 
             </span>
-
 
             <button class="add-cart">
 
@@ -247,8 +224,7 @@
         </div>
 
 
-
-        <!-- محصول -->
+        <!-- محصول 4 -->
 
         <div class="prod"
 
@@ -258,12 +234,10 @@
 
              data-price="450000"
 
-             data-image="images/4.jpg">
+             data-image="{% static 'shop/images/4.jpg' %}">
 
-
-            <img src="images/4.jpg"
+            <img src="{% static 'shop/images/4.jpg' %}"
                  alt="ساعت طلایی">
-
 
             <span class="name">
 
@@ -271,13 +245,11 @@
 
             </span>
 
-
             <span class="price">
 
                 ۴۵۰,۰۰۰ تومان
 
             </span>
-
 
             <button class="add-cart">
 
@@ -290,8 +262,7 @@
         </div>
 
 
-
-        <!-- محصول -->
+        <!-- محصول 5 -->
 
         <div class="prod"
 
@@ -301,12 +272,10 @@
 
              data-price="520000"
 
-             data-image="images/5.jpg">
+             data-image="{% static 'shop/images/5.jpg' %}">
 
-
-            <img src="images/5.jpg"
+            <img src="{% static 'shop/images/5.jpg' %}"
                  alt="ساعت مردانه">
-
 
             <span class="name">
 
@@ -314,13 +283,11 @@
 
             </span>
 
-
             <span class="price">
 
                 ۵۲۰,۰۰۰ تومان
 
             </span>
-
 
             <button class="add-cart">
 
@@ -333,8 +300,7 @@
         </div>
 
 
-
-        <!-- محصول -->
+        <!-- محصول 6 -->
 
         <div class="prod"
 
@@ -344,12 +310,10 @@
 
              data-price="380000"
 
-             data-image="images/6.jpg">
+             data-image="{% static 'shop/images/6.jpg' %}">
 
-
-            <img src="images/6.jpg"
+            <img src="{% static 'shop/images/6.jpg' %}"
                  alt="ساعت زنانه">
-
 
             <span class="name">
 
@@ -357,13 +321,11 @@
 
             </span>
 
-
             <span class="price">
 
                 ۳۸۰,۰۰۰ تومان
 
             </span>
-
 
             <button class="add-cart">
 
@@ -380,16 +342,13 @@
 
 </section>
 
-
-
 <!-- پاورقی -->
 
 <footer class="footer">
 
-
     <!-- فروشگاه -->
 
-    <a href="shop.html"
+    <a href="{% url 'shop_home' %}"
        class="footer-item active">
 
         <i class="fas fa-store"></i>
@@ -401,10 +360,9 @@
     </a>
 
 
+    <!-- سبد خرید -->
 
-    <!-- سبد -->
-
-    <a href="cart.html"
+    <a href="{% url 'cart' %}"
        class="footer-item">
 
         <i class="fas fa-shopping-cart"></i>
@@ -423,10 +381,9 @@
     </a>
 
 
+    <!-- حساب کاربری -->
 
-    <!-- حساب -->
-
-    <a href="login.html"
+    <a href="{% url 'login' %}"
        class="footer-item">
 
         <i class="fas fa-user"></i>
@@ -437,15 +394,13 @@
 
     </a>
 
-
 </footer>
-
 
 
 <!-- جاوااسکریپت -->
 
-<script src="js/shop.js"></script>
-```
+<script src="{% static 'shop/js/shop.js' %}"></script>
+
 
 </body>
 
