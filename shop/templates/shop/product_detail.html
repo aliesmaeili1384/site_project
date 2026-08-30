@@ -1,0 +1,239 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="fa" dir="rtl">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>جزئیات محصول</title>
+
+<link rel="icon"
+      type="image/png"
+      href="{% static 'shop/images/shop.jpg' %}">
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap">
+
+<link rel="stylesheet"
+      href="{% static 'shop/css/product_detail.css' %}">
+
+
+</head>
+
+<body>
+
+
+<!-- سربرگ -->
+
+<header class="header">
+
+    <div class="logo">
+
+        <img src="{% static 'shop/images/logo.png' %}"
+             alt="لوگوی فروشگاه">
+
+    </div>
+
+    <a href="{% url 'shop_home' %}"
+       class="back-button">
+
+        <i class="fas fa-arrow-right"></i>
+
+        فروشگاه
+
+    </a>
+
+</header>
+
+
+<!-- جزئیات محصول -->
+
+<main class="product-detail-container">
+
+    <div class="product-detail-box">
+
+
+        <!-- تصویر محصول -->
+
+        <div class="product-image">
+
+            <img src="{{ product.image.url }}"
+                 alt="{{ product.name }}">
+
+        </div>
+
+
+        <!-- اطلاعات محصول -->
+
+        <div class="product-info">
+
+            <h1>
+                {{ product.name }}
+            </h1>
+
+
+            <div class="product-price">
+
+                {{ product.price|floatformat:0 }} تومان
+
+            </div>
+
+
+            <div class="product-description">
+
+                <h2>
+                    توضیحات محصول
+                </h2>
+
+                <p>
+                    {{ product.description }}
+                </p>
+
+            </div>
+
+
+            <!-- انتخاب تعداد -->
+
+            <div class="quantity-box">
+
+                <label for="quantity">
+                    تعداد
+                </label>
+
+                <div class="quantity-control">
+
+                    <button type="button"
+                            id="decrease">
+
+                        <i class="fas fa-minus"></i>
+
+                    </button>
+
+                    <input type="number"
+                           id="quantity"
+                           value="1"
+                           min="1"
+                           max="99">
+
+                    <button type="button"
+                            id="increase">
+
+                        <i class="fas fa-plus"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- افزودن به سبد -->
+
+            <button type="button"
+                    class="add-cart-button"
+                    id="add-cart-button">
+
+                <i class="fas fa-cart-plus"></i>
+
+                افزودن به سبد خرید
+
+            </button>
+
+
+            <div id="product-message"
+                 class="product-message">
+            </div>
+
+
+            <!-- بازگشت -->
+
+            <a href="{% url 'shop_home' %}"
+               class="back-store">
+
+                <i class="fas fa-arrow-right"></i>
+
+                بازگشت به فروشگاه
+
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- پایین -->
+
+<footer class="footer">
+
+    <a href="{% url 'shop_home' %}"
+       class="footer-item">
+
+        <i class="fas fa-store"></i>
+
+        <span>
+            فروشگاه
+        </span>
+
+    </a>
+
+
+    <a href="{% url 'cart' %}"
+       class="footer-item">
+
+        <i class="fas fa-shopping-cart"></i>
+
+        <span>
+            سبد خرید
+        </span>
+
+        <span class="cart-badge"
+              id="cartBadge">
+
+            0
+
+        </span>
+
+    </a>
+
+
+    <a href="{% url 'login' %}"
+       class="footer-item">
+
+        <i class="fas fa-user"></i>
+
+        <span>
+            حساب کاربری
+        </span>
+
+    </a>
+
+</footer>
+
+
+<script>
+
+    const productId = "{{ product.id }}";
+    const productName = "{{ product.name|escapejs }}";
+    const productPrice = "{{ product.price }}";
+    const productImage = "{{ product.image.url }}";
+
+</script>
+
+<script src="{% static 'shop/js/product_detail.js' %}"></script>
+
+
+</body>
+
+</html>

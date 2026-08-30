@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+   content="width=device-width, initial-scale=1.0">
 
 <title>صفحۀ فروشگاه تایم لوکس</title>
 
@@ -18,327 +18,347 @@
       href="{% static 'shop/images/shop.jpg' %}">
 
 <!-- فونت Font Awesome -->
+
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <!-- فونت وزیر -->
+
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap">
 
 <!-- استایل -->
+
 <link rel="stylesheet"
       href="{% static 'shop/css/shop.css' %}">
-```
 
 </head>
 
 <body>
 
-```
 <!-- سربرگ -->
 
 <header class="header">
 
-    <div class="logo">
+<div class="logo">
 
-        <img src="{% static 'shop/images/logo.png' %}"
-             alt="لوگو">
+    <img src="{% static 'shop/images/logo.png' %}"
+         alt="لوگو">
 
-    </div>
+</div>
 
 </header>
-
 
 <!-- معرفی -->
 
 <section class="hero">
 
-    <div class="hero-content">
+<div class="hero-content">
 
-        <h1>
-            زمان را با زیبایی تجربه کن
-        </h1>
+    <h1>
+        زمان را با زیبایی تجربه کن
+    </h1>
 
-        <p>
-            مجموعه‌ای از ساعت‌های لوکس و خاص با طراحی ظریف و چشم‌نواز،
-            برای کسانی که به استایل، دقت و اصالت اهمیت می‌دهند.
-        </p>
+    <p>
+        مجموعه‌ای از ساعت‌های لوکس و خاص با طراحی ظریف و چشم‌نواز،
+        برای کسانی که به استایل، دقت و اصالت اهمیت می‌دهند.
+    </p>
 
-    </div>
+</div>
 
 </section>
-
 
 <!-- بنر -->
 
 <section class="gold-banner">
 
-    <h2>
-        انتخابی برای هر لحظه!
-    </h2>
+<h2>
+    انتخابی برای هر لحظه!
+</h2>
 
-    <p>
-        از میان مجموعه‌ای از ساعت‌های کلاسیک و مدرن،
-        ساعتی متناسب با سلیقه و سبک شخصی خود انتخاب کنید
-        و جلوه‌ای خاص به استایل خود ببخشید.
-    </p>
+<p>
+    از میان مجموعه‌ای از ساعت‌های کلاسیک و مدرن،
+    ساعتی متناسب با سلیقه و سبک شخصی خود انتخاب کنید
+    و جلوه‌ای خاص به استایل خود ببخشید.
+</p>
 
-    <button
-        onclick="document.getElementById('products').scrollIntoView({ behavior: 'smooth' })">
+<button
+    onclick="document.getElementById('products').scrollIntoView({ behavior: 'smooth' })">
 
-        مشاهده محصولات
+    مشاهده محصولات
 
-    </button>
+</button>
 
 </section>
-
 
 <!-- محصولات -->
 
 <section class="product-section"
          id="products">
 
-    <h2 class="products-title">
+<h2 class="products-title">
 
-        محصولات برگزیده
+    محصولات برگزیده
 
-    </h2>
+</h2>
 
+<!-- شبکه محصولات -->
 
-    <!-- شبکه محصولات -->
+<div class="product">
 
-    <div class="product">
+    <!-- محصول 1 -->
 
+    <div class="prod"
 
-        <!-- محصول 1 -->
+         data-id="1"
 
-        <div class="prod"
+         data-name="ساعت کلاسیک"
 
-             data-id="1"
+         data-price="250000"
 
-             data-name="ساعت کلاسیک"
+         data-image="{% static 'shop/images/1.jpg' %}">
 
-             data-price="250000"
-
-             data-image="{% static 'shop/images/1.jpg' %}">
+        <a href="{% url 'product_detail' 1 %}">
 
             <img src="{% static 'shop/images/1.jpg' %}"
                  alt="ساعت کلاسیک">
 
-            <span class="name">
+        </a>
 
-                ساعت کلاسیک
+        <a href="{% url 'product_detail' 1 %}"
+           class="name">
 
-            </span>
+            ساعت کلاسیک
 
-            <span class="price">
+        </a>
 
-                ۲۵۰,۰۰۰ تومان
+        <span class="price">
 
-            </span>
+            ۲۵۰,۰۰۰ تومان
 
-            <button class="add-cart">
+        </span>
 
-                <i class="fas fa-cart-plus"></i>
+        <button class="add-cart">
 
-                افزودن به سبد
+            <i class="fas fa-cart-plus"></i>
 
-            </button>
+            افزودن به سبد
 
-        </div>
+        </button>
 
+    </div>
 
-        <!-- محصول 2 -->
+    <!-- محصول 2 -->
 
-        <div class="prod"
+    <div class="prod"
 
-             data-id="2"
+         data-id="2"
 
-             data-name="ساعت اسپرت"
+         data-name="ساعت اسپرت"
 
-             data-price="320000"
+         data-price="320000"
 
-             data-image="{% static 'shop/images/2.jpg' %}">
+         data-image="{% static 'shop/images/2.jpg' %}">
+
+        <a href="{% url 'product_detail' 2 %}">
 
             <img src="{% static 'shop/images/2.jpg' %}"
                  alt="ساعت اسپرت">
 
-            <span class="name">
+        </a>
 
-                ساعت اسپرت
+        <a href="{% url 'product_detail' 2 %}"
+           class="name">
 
-            </span>
+            ساعت اسپرت
 
-            <span class="price">
+        </a>
 
-                ۳۲۰,۰۰۰ تومان
+        <span class="price">
 
-            </span>
+            ۳۲۰,۰۰۰ تومان
 
-            <button class="add-cart">
+        </span>
 
-                <i class="fas fa-cart-plus"></i>
+        <button class="add-cart">
 
-                افزودن به سبد
+            <i class="fas fa-cart-plus"></i>
 
-            </button>
+            افزودن به سبد
 
-        </div>
+        </button>
 
+    </div>
 
-        <!-- محصول 3 -->
+    <!-- محصول 3 -->
 
-        <div class="prod"
+    <div class="prod"
 
-             data-id="3"
+         data-id="3"
 
-             data-name="ساعت لوکس"
+         data-name="ساعت لوکس"
 
-             data-price="180000"
+         data-price="180000"
 
-             data-image="{% static 'shop/images/3.jpg' %}">
+         data-image="{% static 'shop/images/3.jpg' %}">
+
+        <a href="{% url 'product_detail' 3 %}">
 
             <img src="{% static 'shop/images/3.jpg' %}"
                  alt="ساعت لوکس">
 
-            <span class="name">
+        </a>
 
-                ساعت لوکس
+        <a href="{% url 'product_detail' 3 %}"
+           class="name">
 
-            </span>
+            ساعت لوکس
 
-            <span class="price">
+        </a>
 
-                ۱۸۰,۰۰۰ تومان
+        <span class="price">
 
-            </span>
+            ۱۸۰,۰۰۰ تومان
 
-            <button class="add-cart">
+        </span>
 
-                <i class="fas fa-cart-plus"></i>
+        <button class="add-cart">
 
-                افزودن به سبد
+            <i class="fas fa-cart-plus"></i>
 
-            </button>
+            افزودن به سبد
 
-        </div>
+        </button>
 
+    </div>
 
-        <!-- محصول 4 -->
+    <!-- محصول 4 -->
 
-        <div class="prod"
+    <div class="prod"
 
-             data-id="4"
+         data-id="4"
 
-             data-name="ساعت طلایی"
+         data-name="ساعت طلایی"
 
-             data-price="450000"
+         data-price="450000"
 
-             data-image="{% static 'shop/images/4.jpg' %}">
+         data-image="{% static 'shop/images/4.jpg' %}">
+
+        <a href="{% url 'product_detail' 4 %}">
 
             <img src="{% static 'shop/images/4.jpg' %}"
                  alt="ساعت طلایی">
 
-            <span class="name">
+        </a>
 
-                ساعت طلایی
+        <a href="{% url 'product_detail' 4 %}"
+           class="name">
 
-            </span>
+            ساعت طلایی
 
-            <span class="price">
+        </a>
 
-                ۴۵۰,۰۰۰ تومان
+        <span class="price">
 
-            </span>
+            ۴۵۰,۰۰۰ تومان
 
-            <button class="add-cart">
+        </span>
 
-                <i class="fas fa-cart-plus"></i>
+        <button class="add-cart">
 
-                افزودن به سبد
+            <i class="fas fa-cart-plus"></i>
 
-            </button>
+            افزودن به سبد
 
-        </div>
+        </button>
 
+    </div>
 
-        <!-- محصول 5 -->
+    <!-- محصول 5 -->
 
-        <div class="prod"
+    <div class="prod"
 
-             data-id="5"
+         data-id="5"
 
-             data-name="ساعت مردانه"
+         data-name="ساعت مردانه"
 
-             data-price="520000"
+         data-price="520000"
 
-             data-image="{% static 'shop/images/5.jpg' %}">
+         data-image="{% static 'shop/images/5.jpg' %}">
+
+        <a href="{% url 'product_detail' 5 %}">
 
             <img src="{% static 'shop/images/5.jpg' %}"
                  alt="ساعت مردانه">
 
-            <span class="name">
+        </a>
 
-                ساعت مردانه
+        <a href="{% url 'product_detail' 5 %}"
+           class="name">
 
-            </span>
+            ساعت مردانه
 
-            <span class="price">
+        </a>
 
-                ۵۲۰,۰۰۰ تومان
+        <span class="price">
 
-            </span>
+            ۵۲۰,۰۰۰ تومان
 
-            <button class="add-cart">
+        </span>
 
-                <i class="fas fa-cart-plus"></i>
+        <button class="add-cart">
 
-                افزودن به سبد
+            <i class="fas fa-cart-plus"></i>
 
-            </button>
+            افزودن به سبد
 
-        </div>
+        </button>
 
+    </div>
 
-        <!-- محصول 6 -->
+    <!-- محصول 6 -->
 
-        <div class="prod"
+    <div class="prod"
 
-             data-id="6"
+         data-id="6"
 
-             data-name="ساعت زنانه"
+         data-name="ساعت زنانه"
 
-             data-price="380000"
+         data-price="380000"
 
-             data-image="{% static 'shop/images/6.jpg' %}">
+         data-image="{% static 'shop/images/6.jpg' %}">
+
+        <a href="{% url 'product_detail' 6 %}">
 
             <img src="{% static 'shop/images/6.jpg' %}"
                  alt="ساعت زنانه">
 
-            <span class="name">
+        </a>
 
-                ساعت زنانه
+        <a href="{% url 'product_detail' 6 %}"
+           class="name">
 
-            </span>
+            ساعت زنانه
 
-            <span class="price">
+        </a>
 
-                ۳۸۰,۰۰۰ تومان
+        <span class="price">
 
-            </span>
+            ۳۸۰,۰۰۰ تومان
 
-            <button class="add-cart">
+        </span>
 
-                <i class="fas fa-cart-plus"></i>
+        <button class="add-cart">
 
-                افزودن به سبد
+            <i class="fas fa-cart-plus"></i>
 
-            </button>
+            افزودن به سبد
 
-        </div>
-
+        </button>
 
     </div>
+
+</div>
 
 </section>
 
@@ -346,61 +366,57 @@
 
 <footer class="footer">
 
-    <!-- فروشگاه -->
+<!-- فروشگاه -->
 
-    <a href="{% url 'shop_home' %}"
-       class="footer-item active">
+<a href="{% url 'shop_home' %}"
+   class="footer-item active">
 
-        <i class="fas fa-store"></i>
+    <i class="fas fa-store"></i>
 
-        <span>
-            فروشگاه
-        </span>
+    <span>
+        فروشگاه
+    </span>
 
-    </a>
+</a>
 
+<!-- سبد خرید -->
 
-    <!-- سبد خرید -->
+<a href="{% url 'cart' %}"
+   class="footer-item">
 
-    <a href="{% url 'cart' %}"
-       class="footer-item">
+    <i class="fas fa-shopping-cart"></i>
 
-        <i class="fas fa-shopping-cart"></i>
+    <span>
+        سبد خرید
+    </span>
 
-        <span>
-            سبد خرید
-        </span>
+    <span class="cart-badge"
+          id="cartBadge">
 
-        <span class="cart-badge"
-              id="cartBadge">
+        0
 
-            0
+    </span>
 
-        </span>
+</a>
 
-    </a>
+<!-- حساب کاربری -->
 
+<a href="{% url 'login' %}"
+   class="footer-item">
 
-    <!-- حساب کاربری -->
+    <i class="fas fa-user"></i>
 
-    <a href="{% url 'login' %}"
-       class="footer-item">
+    <span>
+        حساب کاربری
+    </span>
 
-        <i class="fas fa-user"></i>
-
-        <span>
-            حساب کاربری
-        </span>
-
-    </a>
+</a>
 
 </footer>
-
 
 <!-- جاوااسکریپت -->
 
 <script src="{% static 'shop/js/shop.js' %}"></script>
-
 
 </body>
 

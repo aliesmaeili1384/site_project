@@ -1,350 +1,383 @@
+{% load static %}
+
 <!DOCTYPE html>
+
 <html lang="fa" dir="rtl">
 
 <head>
 
-    <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
-    <title>حساب کاربری</title>
-    <link rel="icon" type="images/png" href="images/acc.jpg">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-    <!-- فونت -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<title>حساب کاربری</title>
 
-    <!-- فونت -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap">
+<link rel="icon"
+      type="image/png"
+      href="{% static 'shop/images/acc.jpg' %}">
 
-    <!-- استایل -->
-    <link rel="stylesheet"
-          href="css/account.css">
+
+<!-- Font Awesome -->
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+<!-- Vazirmatn -->
+
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap">
+
+
+<!-- CSS -->
+
+<link rel="stylesheet"
+      href="{% static 'shop/css/account.css' %}">
+
 
 </head>
 
-
 <body>
 
+<!-- سربرگ -->
 
-    <!-- سربرگ -->
+<header class="header">
 
-    <header class="header">
+    <div class="logo">
 
-        <div class="logo">
+        <img
+            src="{% static 'shop/images/logo.png' %}"
+            alt="لوگوی فروشگاه">
 
-            <img src="images/logo.png"
-                 alt="لوگوی فروشگاه">
+    </div>
+
+</header>
+
+
+
+<!-- حساب کاربری -->
+
+<main class="account-container">
+
+
+    <div class="account-box">
+
+
+        <!-- آیکون کاربر -->
+
+        <div class="user-icon">
+
+            <i class="fas fa-user"></i>
 
         </div>
 
-    </header>
 
 
+        <!-- عنوان -->
 
-    <!-- حساب -->
+        <h1>
+            حساب کاربری
+        </h1>
 
-    <main class="account-container">
 
+        <p class="welcome">
+            به حساب کاربری خود خوش آمدید
+        </p>
 
-        <div class="account-box">
 
 
-            <!-- کاربر -->
+        <!-- اطلاعات کاربر -->
 
-            <div class="user-icon">
+        <div class="user-info">
 
-                <i class="fas fa-user"></i>
 
-            </div>
+            <!-- نام -->
 
+            <div class="info-item">
 
-
-            <!-- عنوان -->
-
-            <h1>
-                حساب کاربری
-            </h1>
-
-
-            <p class="welcome">
-                به حساب کاربری خود خوش آمدید
-            </p>
-
-
-
-            <!-- اطلاعات -->
-
-            <div class="user-info">
-
-
-                <!-- نام -->
-
-                <div class="info-item">
-
-                    <div>
-
-                        <i class="fas fa-user"></i>
-
-                        <span>
-                            نام
-                        </span>
-
-                    </div>
-
-                    <strong id="first-name">
-                        -
-                    </strong>
-
-                </div>
-
-
-                <!-- نام خانوادگی -->
-
-                <div class="info-item">
-
-                    <div>
-
-                        <i class="fas fa-user"></i>
-
-                        <span>
-                            نام خانوادگی
-                        </span>
-
-                    </div>
-
-                    <strong id="last-name">
-                        -
-                    </strong>
-
-                </div>
-
-
-
-                <!-- تلفن -->
-
-                <div class="info-item">
-
-                    <div>
-
-                        <i class="fas fa-phone"></i>
-
-                        <span>
-                            شماره موبایل
-                        </span>
-
-                    </div>
-
-                    <strong id="phone">
-                        -
-                    </strong>
-
-                </div>
-
-
-                <!-- آدرس -->
-
-                <div class="info-item">
-
-                    <div>
-
-                        <i class="fas fa-location-dot"></i>
-
-                        <span>
-                            آدرس
-                        </span>
-
-                    </div>
-
-                    <strong id="address">
-                        -
-                    </strong>
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- پیام -->
-
-            <div id="account-message"
-                 class="account-message">
-            </div>
-
-
-
-            <!-- عملیات -->
-
-            <div class="account-actions">
-
-
-                <button type="button"
-                        id="edit-button">
-
-                    <i class="fas fa-user-edit"></i>
-
-                    ویرایش اطلاعات
-
-                </button>
-
-
-
-                <button type="button">
-
-                    <i class="fas fa-shopping-bag"></i>
-
-                    سفارش‌های من
-
-                </button>
-
-
-
-                <button type="button"
-                        class="logout"
-                        id="logout-button">
-
-                    <i class="fas fa-sign-out-alt"></i>
-
-                    خروج از حساب
-
-                </button>
-
-
-            </div>
-
-
-
-            <!-- فرم -->
-
-            <form id="edit-form"
-                  class="edit-form">
-
-
-                <h2>
-                    ویرایش اطلاعات
-                </h2>
-
-
-
-                <!-- نام -->
-
-                <div class="edit-input-box">
+                <div>
 
                     <i class="fas fa-user"></i>
 
-                    <input
-                        type="text"
-                        id="edit-first-name"
-                        placeholder="نام">
+                    <span>
+                        نام
+                    </span>
 
                 </div>
 
+                <strong id="first-name">
+                    -
+                </strong>
+
+            </div>
 
 
-                <!-- نام خانوادگی -->
 
-                <div class="edit-input-box">
+            <!-- نام خانوادگی -->
+
+            <div class="info-item">
+
+                <div>
 
                     <i class="fas fa-user"></i>
 
-                    <input
-                        type="text"
-                        id="edit-last-name"
-                        placeholder="نام خانوادگی">
+                    <span>
+                        نام خانوادگی
+                    </span>
 
                 </div>
 
+                <strong id="last-name">
+                    -
+                </strong>
+
+            </div>
 
 
-                <!-- تلفن -->
 
-                <div class="edit-input-box">
+            <!-- شماره موبایل -->
+
+            <div class="info-item">
+
+                <div>
 
                     <i class="fas fa-phone"></i>
 
-                    <input
-                        type="tel"
-                        id="edit-phone"
-                        placeholder="شماره موبایل"
-                        maxlength="11"
-                        dir="ltr">
+                    <span>
+                        شماره موبایل
+                    </span>
 
                 </div>
 
+                <strong id="phone">
+                    -
+                </strong>
+
+            </div>
 
 
-                <!-- آدرس -->
 
-                <div class="edit-input-box">
+            <!-- آدرس -->
+
+            <div class="info-item">
+
+                <div>
 
                     <i class="fas fa-location-dot"></i>
 
-                    <input
-                        type="text"
-                        id="edit-address"
-                        placeholder="آدرس"
-                        maxlength="200">
+                    <span>
+                        آدرس
+                    </span>
 
                 </div>
 
+                <strong id="address">
+                    -
+                </strong>
 
-
-                <!-- دکمه ها -->
-
-                <div class="edit-actions">
-
-
-                    <button type="submit"
-                            class="save-button">
-
-                        <i class="fas fa-check"></i>
-
-                        ذخیره تغییرات
-
-                    </button>
-
-
-
-                    <button type="button"
-                            id="cancel-edit"
-                            class="cancel-button">
-
-                        <i class="fas fa-times"></i>
-
-                        انصراف
-
-                    </button>
-
-
-                </div>
-
-
-            </form>
-
-
-
-            <!-- بازگشت -->
-
-            <a href="shop.html"
-               class="back-store">
-
-                <i class="fas fa-arrow-right"></i>
-
-                بازگشت به فروشگاه
-
-            </a>
+            </div>
 
 
         </div>
 
 
-    </main>
 
-    <script src="js/account.js"></script>
+        <!-- پیام -->
+
+        <div id="account-message"
+             class="account-message">
+
+        </div>
+
+
+
+        <!-- عملیات -->
+
+        <div class="account-actions">
+
+
+            <!-- ویرایش -->
+
+            <button
+                type="button"
+                id="edit-button">
+
+                <i class="fas fa-user-edit"></i>
+
+                ویرایش اطلاعات
+
+            </button>
+
+
+
+            <!-- سفارش ها -->
+
+            <button
+                type="button">
+
+                <i class="fas fa-shopping-bag"></i>
+
+                سفارش‌های من
+
+            </button>
+
+
+
+            <!-- خروج -->
+
+            <button
+                type="button"
+                class="logout"
+                id="logout-button">
+
+                <i class="fas fa-sign-out-alt"></i>
+
+                خروج از حساب
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- فرم ویرایش -->
+
+        <form
+            id="edit-form"
+            class="edit-form">
+
+
+            <h2>
+                ویرایش اطلاعات
+            </h2>
+
+
+
+            <!-- نام -->
+
+            <div class="edit-input-box">
+
+                <i class="fas fa-user"></i>
+
+                <input
+                    type="text"
+                    id="edit-first-name"
+                    placeholder="نام">
+
+            </div>
+
+
+
+            <!-- نام خانوادگی -->
+
+            <div class="edit-input-box">
+
+                <i class="fas fa-user"></i>
+
+                <input
+                    type="text"
+                    id="edit-last-name"
+                    placeholder="نام خانوادگی">
+
+            </div>
+
+
+
+            <!-- شماره موبایل -->
+
+            <div class="edit-input-box">
+
+                <i class="fas fa-phone"></i>
+
+                <input
+                    type="tel"
+                    id="edit-phone"
+                    placeholder="شماره موبایل"
+                    maxlength="11"
+                    dir="ltr">
+
+            </div>
+
+
+
+            <!-- آدرس -->
+
+            <div class="edit-input-box">
+
+                <i class="fas fa-location-dot"></i>
+
+                <input
+                    type="text"
+                    id="edit-address"
+                    placeholder="آدرس"
+                    maxlength="200">
+
+            </div>
+
+
+
+            <!-- دکمه ها -->
+
+            <div class="edit-actions">
+
+
+                <button
+                    type="submit"
+                    class="save-button">
+
+                    <i class="fas fa-check"></i>
+
+                    ذخیره تغییرات
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    id="cancel-edit"
+                    class="cancel-button">
+
+                    <i class="fas fa-times"></i>
+
+                    انصراف
+
+                </button>
+
+
+            </div>
+
+
+        </form>
+
+
+
+        <!-- بازگشت به فروشگاه -->
+
+        <a
+            href="{% url 'shop_home' %}"
+            class="back-store">
+
+            <i class="fas fa-arrow-right"></i>
+
+            بازگشت به فروشگاه
+
+        </a>
+
+
+    </div>
+
+
+</main>
+
+
+
+<!-- JavaScript -->
+
+<script src="{% static 'shop/js/account.js' %}"></script>
 
 
 </body>

@@ -1,262 +1,264 @@
 {% load static %}
 
 <!DOCTYPE html>
+
 <html lang="fa" dir="rtl">
 
 <head>
 
-    <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
-    <title>سبد خرید</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon"
-          type="image/png"
-          href="{% static 'shop/images/cart.jpg' %}">
+<title>سبد خرید</title>
 
-
-    <!-- فونت -->
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="icon"
+      type="image/png"
+      href="{% static 'shop/images/cart.jpg' %}">
 
 
-    <!-- وزیر -->
+<!-- فونت -->
 
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap">
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 
-    <!-- CSS -->
+<!-- وزیر -->
 
-    <link rel="stylesheet"
-          href="{% static 'shop/css/cart.css' %}">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap">
+
+
+<!-- CSS -->
+
+<link rel="stylesheet"
+      href="{% static 'shop/css/cart.css' %}">
+
 
 </head>
-
 
 <body>
 
 
-    <!-- سربرگ -->
+<!-- سربرگ -->
 
-    <header class="header">
+<header class="header">
 
-        <!-- لوگو -->
+    <!-- لوگو -->
 
-        <div class="logo">
+    <div class="logo">
 
-            <img
-                src="{% static 'shop/images/logo.png' %}"
-                alt="لوگوی فروشگاه">
+        <img
+            src="{% static 'shop/images/logo.png' %}"
+            alt="لوگوی فروشگاه">
 
-        </div>
+    </div>
 
 
-        <!-- بازگشت به فروشگاه -->
+    <!-- بازگشت به فروشگاه -->
 
-        <a
-            href="{% url 'shop_home' %}"
-            class="back-button">
+    <a
+        href="{% url 'shop_home' %}"
+        class="back-button">
 
-            <i class="fas fa-arrow-right"></i>
+        <i class="fas fa-arrow-right"></i>
 
+        فروشگاه
+
+    </a>
+
+</header>
+
+
+
+<!-- سبد خرید -->
+
+<main class="cart-container">
+
+
+    <!-- عنوان -->
+
+    <div class="cart-title">
+
+        <i class="fas fa-shopping-cart"></i>
+
+        <h1>
+            سبد خرید
+        </h1>
+
+    </div>
+
+
+
+    <!-- محتوای سبد -->
+
+    <div class="cart-content">
+
+
+        <!-- محصولات -->
+
+        <section
+            class="cart-products"
+            id="cart-products">
+
+        </section>
+
+
+
+        <!-- خلاصه -->
+
+        <aside class="cart-summary">
+
+            <h2>
+                خلاصه سفارش
+            </h2>
+
+
+            <div class="summary-line">
+
+                <span>
+                    تعداد کالا
+                </span>
+
+                <strong id="cart-count">
+                    ۰ کالا
+                </strong>
+
+            </div>
+
+
+            <div class="summary-line">
+
+                <span>
+                    مبلغ کالاها
+                </span>
+
+                <strong id="cart-subtotal">
+                    ۰ تومان
+                </strong>
+
+            </div>
+
+
+            <div class="summary-line">
+
+                <span>
+                    هزینه ارسال
+                </span>
+
+                <strong>
+                    رایگان
+                </strong>
+
+            </div>
+
+
+            <div class="summary-line total">
+
+                <span>
+                    مبلغ نهایی
+                </span>
+
+                <strong id="cart-total">
+                    ۰ تومان
+                </strong>
+
+            </div>
+
+
+            <button
+                class="checkout-button"
+                id="checkout-button">
+
+                <i class="fas fa-credit-card"></i>
+
+                ادامه فرایند خرید
+
+            </button>
+
+
+            <!-- ادامه خرید -->
+
+            <a
+                href="{% url 'shop_home' %}"
+                class="continue-shopping">
+
+                <i class="fas fa-arrow-right"></i>
+
+                ادامه خرید
+
+            </a>
+
+        </aside>
+
+
+    </div>
+
+
+</main>
+
+
+
+<!-- پایین -->
+
+<footer class="footer">
+
+
+    <!-- فروشگاه -->
+
+    <a
+        href="{% url 'shop_home' %}"
+        class="footer-item">
+
+        <i class="fas fa-store"></i>
+
+        <span>
             فروشگاه
+        </span>
 
-        </a>
+    </a>
 
-    </header>
 
 
+    <!-- سبد -->
 
-    <!-- سبد خرید -->
+    <a
+        href="{% url 'cart' %}"
+        class="footer-item active">
 
-    <main class="cart-container">
+        <i class="fas fa-shopping-cart"></i>
 
+        <span>
+            سبد خرید
+        </span>
 
-        <!-- عنوان -->
+    </a>
 
-        <div class="cart-title">
 
-            <i class="fas fa-shopping-cart"></i>
 
-            <h1>
-                سبد خرید
-            </h1>
+    <!-- حساب -->
 
-        </div>
+    <a
+    href="{% url 'login' %}"
+    class="footer-item">
 
+        <i class="fas fa-user"></i>
 
+        <span>
+            حساب کاربری
+        </span>
 
-        <!-- محتوای سبد -->
+    </a>
 
-        <div class="cart-content">
 
+</footer>
 
-            <!-- محصولات -->
 
-            <section
-                class="cart-products"
-                id="cart-products">
+<!-- JavaScript -->
 
-            </section>
-
-
-
-            <!-- خلاصه -->
-
-            <aside class="cart-summary">
-
-                <h2>
-                    خلاصه سفارش
-                </h2>
-
-
-                <div class="summary-line">
-
-                    <span>
-                        تعداد کالا
-                    </span>
-
-                    <strong id="cart-count">
-                        ۰ کالا
-                    </strong>
-
-                </div>
-
-
-                <div class="summary-line">
-
-                    <span>
-                        مبلغ کالاها
-                    </span>
-
-                    <strong id="cart-subtotal">
-                        ۰ تومان
-                    </strong>
-
-                </div>
-
-
-                <div class="summary-line">
-
-                    <span>
-                        هزینه ارسال
-                    </span>
-
-                    <strong>
-                        رایگان
-                    </strong>
-
-                </div>
-
-
-                <div class="summary-line total">
-
-                    <span>
-                        مبلغ نهایی
-                    </span>
-
-                    <strong id="cart-total">
-                        ۰ تومان
-                    </strong>
-
-                </div>
-
-
-                <button
-                    class="checkout-button"
-                    id="checkout-button">
-
-                    <i class="fas fa-credit-card"></i>
-
-                    ادامه فرایند خرید
-
-                </button>
-
-
-                <!-- ادامه خرید -->
-
-                <a
-                    href="{% url 'shop_home' %}"
-                    class="continue-shopping">
-
-                    <i class="fas fa-arrow-right"></i>
-
-                    ادامه خرید
-
-                </a>
-
-            </aside>
-
-
-        </div>
-
-
-    </main>
-
-
-
-    <!-- پایین -->
-
-    <footer class="footer">
-
-
-        <!-- فروشگاه -->
-
-        <a
-            href="{% url 'shop_home' %}"
-            class="footer-item">
-
-            <i class="fas fa-store"></i>
-
-            <span>
-                فروشگاه
-            </span>
-
-        </a>
-
-
-
-        <!-- سبد -->
-
-        <a
-            href="{% url 'cart' %}"
-            class="footer-item active">
-
-            <i class="fas fa-shopping-cart"></i>
-
-            <span>
-                سبد خرید
-            </span>
-
-        </a>
-
-
-
-        <!-- حساب -->
-
-        <a
-            href="login.html"
-            class="footer-item">
-
-            <i class="fas fa-user"></i>
-
-            <span>
-                حساب کاربری
-            </span>
-
-        </a>
-
-
-    </footer>
-
-
-    <!-- JavaScript -->
-
-    <script src="{% static 'shop/js/cart.js' %}"></script>
+<script src="{% static 'shop/js/cart.js' %}"></script>
 
 
 </body>
