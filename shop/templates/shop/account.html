@@ -1,3 +1,4 @@
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -5,7 +6,6 @@
 <html lang="fa" dir="rtl">
 
 <head>
-
 
 <meta charset="UTF-8">
 
@@ -18,28 +18,19 @@
       type="image/png"
       href="{% static 'shop/images/acc.jpg' %}">
 
-
-<!-- Font Awesome -->
-
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-
-<!-- Vazirmatn -->
 
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap">
 
-
-<!-- CSS -->
-
 <link rel="stylesheet"
       href="{% static 'shop/css/account.css' %}">
-
 
 </head>
 
 <body>
+
 
 <!-- سربرگ -->
 
@@ -61,7 +52,6 @@
 
 <main class="account-container">
 
-
     <div class="account-box">
 
 
@@ -81,10 +71,33 @@
             حساب کاربری
         </h1>
 
-
         <p class="welcome">
             به حساب کاربری خود خوش آمدید
         </p>
+
+
+
+        <!-- پیام موفقیت -->
+
+        {% if message %}
+
+        <div class="account-message success">
+            {{ message }}
+        </div>
+
+        {% endif %}
+
+
+
+        <!-- پیام خطا -->
+
+        {% if error %}
+
+        <div class="account-message error">
+            {{ error }}
+        </div>
+
+        {% endif %}
 
 
 
@@ -107,8 +120,8 @@
 
                 </div>
 
-                <strong id="first-name">
-                    -
+                <strong>
+                    {{ user.first_name }}
                 </strong>
 
             </div>
@@ -129,8 +142,8 @@
 
                 </div>
 
-                <strong id="last-name">
-                    -
+                <strong>
+                    {{ user.last_name }}
                 </strong>
 
             </div>
@@ -151,8 +164,8 @@
 
                 </div>
 
-                <strong id="phone">
-                    -
+                <strong dir="ltr">
+                    {{ profile.phone }}
                 </strong>
 
             </div>
@@ -173,21 +186,12 @@
 
                 </div>
 
-                <strong id="address">
-                    -
+                <strong>
+                    {{ profile.address|default:"-" }}
                 </strong>
 
             </div>
 
-
-        </div>
-
-
-
-        <!-- پیام -->
-
-        <div id="account-message"
-             class="account-message">
 
         </div>
 
@@ -198,7 +202,7 @@
         <div class="account-actions">
 
 
-            <!-- ویرایش -->
+            <!-- ویرایش اطلاعات -->
 
             <button
                 type="button"
@@ -227,16 +231,15 @@
 
             <!-- خروج -->
 
-            <button
-                type="button"
-                class="logout"
-                id="logout-button">
+            <a
+                href="{% url 'logout' %}"
+                class="logout">
 
                 <i class="fas fa-sign-out-alt"></i>
 
                 خروج از حساب
 
-            </button>
+            </a>
 
 
         </div>
@@ -246,8 +249,11 @@
         <!-- فرم ویرایش -->
 
         <form
+            method="POST"
             id="edit-form"
             class="edit-form">
+
+            {% csrf_token %}
 
 
             <h2>
@@ -264,8 +270,11 @@
 
                 <input
                     type="text"
-                    id="edit-first-name"
-                    placeholder="نام">
+                    name="first_name"
+                    value="{{ user.first_name }}"
+                    placeholder="نام"
+                    maxlength="30"
+                    required>
 
             </div>
 
@@ -279,8 +288,11 @@
 
                 <input
                     type="text"
-                    id="edit-last-name"
-                    placeholder="نام خانوادگی">
+                    name="last_name"
+                    value="{{ user.last_name }}"
+                    placeholder="نام خانوادگی"
+                    maxlength="50"
+                    required>
 
             </div>
 
@@ -294,10 +306,12 @@
 
                 <input
                     type="tel"
-                    id="edit-phone"
+                    name="phone"
+                    value="{{ profile.phone }}"
                     placeholder="شماره موبایل"
                     maxlength="11"
-                    dir="ltr">
+                    dir="ltr"
+                    required>
 
             </div>
 
@@ -311,9 +325,11 @@
 
                 <input
                     type="text"
-                    id="edit-address"
+                    name="address"
+                    value="{{ profile.address }}"
                     placeholder="آدرس"
-                    maxlength="200">
+                    maxlength="200"
+                    required>
 
             </div>
 
@@ -323,6 +339,8 @@
 
             <div class="edit-actions">
 
+
+                <!-- ذخیره -->
 
                 <button
                     type="submit"
@@ -335,6 +353,8 @@
                 </button>
 
 
+
+                <!-- انصراف -->
 
                 <button
                     type="button"
@@ -370,16 +390,54 @@
 
     </div>
 
-
 </main>
 
 
 
-<!-- JavaScript -->
+<script>
 
-<script src="{% static 'shop/js/account.js' %}"></script>
+const editButton =
+    document.getElementById("edit-button");
+
+const editForm =
+    document.getElementById("edit-form");
+
+const cancelEdit =
+    document.getElementById("cancel-edit");
+
+
+editButton.addEventListener(
+    "click",
+    function () {
+
+        editForm.classList.add("show");
+
+        editButton.style.display = "none";
+
+        editForm.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }
+);
+
+
+cancelEdit.addEventListener(
+    "click",
+    function () {
+
+        editForm.classList.remove("show");
+
+        editButton.style.display = "block";
+
+    }
+);
+
+</script>
 
 
 </body>
 
 </html>
+

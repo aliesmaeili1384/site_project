@@ -5,14 +5,55 @@ from . import views
 
 urlpatterns = [
 
-    path('', views.shop_home, name='shop_home'),
+    # صفحه اصلی
+    path(
+        '',
+        views.shop_home,
+        name='shop_home'
+    ),
 
-    path('cart/', views.cart, name='cart'),
 
-    path('login/', views.login, name='login'),
+    # سبد خرید
+    path(
+        'cart/',
+        views.cart,
+        name='cart'
+    ),
 
-    path('account/', views.account, name='account'),
 
+    # ورود
+    path(
+        'login/',
+        views.login,
+        name='login'
+    ),
+
+
+    # ثبت نام
+    path(
+        'register/',
+        views.register,
+        name='register'
+    ),
+
+
+    # حساب کاربری
+    path(
+        'account/',
+        views.account,
+        name='account'
+    ),
+
+
+    # خروج
+    path(
+        'logout/',
+        views.logout_view,
+        name='logout'
+    ),
+
+
+    # جزئیات محصول
     path(
         'product/<int:id>/',
         views.product_detail,

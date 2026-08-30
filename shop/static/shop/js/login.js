@@ -1,192 +1,376 @@
-const loginTab = document.getElementById("login-tab");
-const registerTab = document.getElementById("register-tab");
-const loginForm = document.getElementById("login-form");
-const registerForm = document.getElementById("register-form");
-const formTitle = document.getElementById("form-title");
-const message = document.getElementById("message");
+// ======================================
+// گرفتن عناصر صفحه
+// ======================================
 
-loginTab.addEventListener("click", function () {
-    loginForm.classList.add("active-form");
-    registerForm.classList.remove("active-form");
+const loginTab =
+    document.getElementById("login-tab");
 
-    loginTab.classList.add("active");
-    registerTab.classList.remove("active");
+const registerTab =
+    document.getElementById("register-tab");
 
-    formTitle.textContent = "ورود به حساب کاربری";
+const loginForm =
+    document.getElementById("login-form");
 
-    clearMessage();
-});
+const registerForm =
+    document.getElementById("register-form");
 
-registerTab.addEventListener("click", function () {
-    registerForm.classList.add("active-form");
-    loginForm.classList.remove("active-form");
+const formTitle =
+    document.getElementById("form-title");
 
-    registerTab.classList.add("active");
-    loginTab.classList.remove("active");
+const message =
+    document.getElementById("message");
 
-    formTitle.textContent = "ساخت حساب کاربری";
 
-    clearMessage();
-});
+// ======================================
+// نمایش پیام
+// ======================================
 
 function showMessage(text, type) {
+
     message.textContent = text;
-    message.className = "message " + type;
+
+    message.className =
+        "message " + type;
 }
 
+
+// ======================================
+// پاک کردن پیام
+// ======================================
+
 function clearMessage() {
+
     message.textContent = "";
+
     message.className = "message";
 }
 
-function isValidPhone(phone) {
-    return /^09\d{9}$/.test(phone);
+
+// ======================================
+// تغییر تب به ورود
+// ======================================
+
+function showLoginForm() {
+
+    loginForm.classList.add(
+        "active-form"
+    );
+
+    registerForm.classList.remove(
+        "active-form"
+    );
+
+
+    loginTab.classList.add(
+        "active"
+    );
+
+    registerTab.classList.remove(
+        "active"
+    );
+
+
+    formTitle.textContent =
+        "ورود به حساب کاربری";
+
+
+    clearMessage();
 }
 
-registerForm.addEventListener("submit", function (event) {
-    event.preventDefault();
 
-    const firstName = document.getElementById("first-name").value.trim();
-    const lastName = document.getElementById("last-name").value.trim();
-    const phone = document.getElementById("register-phone").value.trim();
-    const address = document.getElementById("register-address").value.trim();
-    const password = document.getElementById("register-password").value;
-    const confirmPassword = document.getElementById("confirm-password").value;
+// ======================================
+// تغییر تب به ثبت نام
+// ======================================
 
-    if (
-        firstName === "" ||
-        lastName === "" ||
-        phone === "" ||
-        address === "" ||
-        password === "" ||
-        confirmPassword === ""
-    ) {
-        showMessage("لطفاً تمام فیلدها را پر کنید.", "error");
-        return;
+function showRegisterForm() {
+
+    registerForm.classList.add(
+        "active-form"
+    );
+
+    loginForm.classList.remove(
+        "active-form"
+    );
+
+
+    registerTab.classList.add(
+        "active"
+    );
+
+    loginTab.classList.remove(
+        "active"
+    );
+
+
+    formTitle.textContent =
+        "ساخت حساب کاربری";
+
+
+    clearMessage();
+}
+
+
+// ======================================
+// کلیک روی تب ورود
+// ======================================
+
+loginTab.addEventListener(
+    "click",
+    function () {
+
+        showLoginForm();
+
     }
+);
 
-    if (!isValidPhone(phone)) {
-        showMessage(
-            "شماره تلفن باید به صورت 09123456789 باشد.",
-            "error"
-        );
-        return;
+
+// ======================================
+// کلیک روی تب ثبت نام
+// ======================================
+
+registerTab.addEventListener(
+    "click",
+    function () {
+
+        showRegisterForm();
+
     }
+);
 
-    if (password.length < 4) {
-        showMessage(
-            "رمز عبور باید حداقل ۴ کاراکتر باشد.",
-            "error"
-        );
-        return;
-    }
 
-    if (password !== confirmPassword) {
-        showMessage(
-            "رمز عبور و تکرار آن یکسان نیستند.",
-            "error"
-        );
-        return;
-    }
+// ======================================
+// بررسی شماره تلفن
+// ======================================
 
-    const existingUser = localStorage.getItem("user");
+function isValidPhone(phone) {
 
-    if (existingUser) {
-        const user = JSON.parse(existingUser);
+    return /^09\d{9}$/.test(phone);
 
-        if (user.phone === phone) {
+}
+
+
+// ======================================
+// فرم ثبت نام
+// ======================================
+
+registerForm.addEventListener(
+    "submit",
+    function (event) {
+
+
+        const firstName =
+            document
+                .getElementById("first-name")
+                .value
+                .trim();
+
+
+        const lastName =
+            document
+                .getElementById("last-name")
+                .value
+                .trim();
+
+
+        const phone =
+            document
+                .getElementById("register-phone")
+                .value
+                .trim();
+
+
+        const address =
+            document
+                .getElementById("register-address")
+                .value
+                .trim();
+
+
+        const password =
+            document
+                .getElementById("register-password")
+                .value;
+
+
+        const confirmPassword =
+            document
+                .getElementById("confirm-password")
+                .value;
+
+
+
+        // -------------------------------
+        // بررسی خالی بودن فیلدها
+        // -------------------------------
+
+        if (
+            firstName === "" ||
+            lastName === "" ||
+            phone === "" ||
+            address === "" ||
+            password === "" ||
+            confirmPassword === ""
+        ) {
+
+            event.preventDefault();
+
             showMessage(
-                "این شماره تلفن قبلاً ثبت نام کرده است.",
+                "لطفاً تمام فیلدها را پر کنید.",
                 "error"
             );
+
             return;
         }
+
+
+
+        // -------------------------------
+        // بررسی شماره تلفن
+        // -------------------------------
+
+        if (!isValidPhone(phone)) {
+
+            event.preventDefault();
+
+            showMessage(
+                "شماره تلفن باید به صورت 09123456789 باشد.",
+                "error"
+            );
+
+            return;
+        }
+
+
+
+        // -------------------------------
+        // بررسی طول رمز
+        // -------------------------------
+
+        if (password.length < 4) {
+
+            event.preventDefault();
+
+            showMessage(
+                "رمز عبور باید حداقل ۴ کاراکتر باشد.",
+                "error"
+            );
+
+            return;
+        }
+
+
+
+        // -------------------------------
+        // بررسی تکرار رمز
+        // -------------------------------
+
+        if (password !== confirmPassword) {
+
+            event.preventDefault();
+
+            showMessage(
+                "رمز عبور و تکرار آن یکسان نیستند.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        // اگر همه چیز درست باشد
+        // فرم به Django ارسال می‌شود
+
     }
+);
 
-    const user = {
-        firstName: firstName,
-        lastName: lastName,
-        phone: phone,
-        address: address,
-        password: password
-    };
 
-    localStorage.setItem("user", JSON.stringify(user));
-    localStorage.setItem("isLoggedIn", "true");
+// ======================================
+// فرم ورود
+// ======================================
 
-    showMessage(
-        "ثبت نام با موفقیت انجام شد.",
-        "success"
-    );
+loginForm.addEventListener(
+    "submit",
+    function (event) {
 
-    registerForm.reset();
 
-    setTimeout(function () {
-        window.location.href = accountUrl;
-    }, 1000);
-});
+        const phone =
+            document
+                .getElementById("login-phone")
+                .value
+                .trim();
 
-loginForm.addEventListener("submit", function (event) {
-    event.preventDefault();
 
-    const phone = document.getElementById("login-phone").value.trim();
-    const password = document.getElementById("login-password").value;
+        const password =
+            document
+                .getElementById("login-password")
+                .value;
 
-    if (phone === "" || password === "") {
-        showMessage(
-            "شماره تلفن و رمز عبور را وارد کنید.",
-            "error"
-        );
-        return;
+
+
+        // -------------------------------
+        // بررسی خالی بودن
+        // -------------------------------
+
+        if (
+            phone === "" ||
+            password === ""
+        ) {
+
+            event.preventDefault();
+
+            showMessage(
+                "شماره تلفن و رمز عبور را وارد کنید.",
+                "error"
+            );
+
+            return;
+        }
+
+
+
+        // -------------------------------
+        // بررسی شماره تلفن
+        // -------------------------------
+
+        if (!isValidPhone(phone)) {
+
+            event.preventDefault();
+
+            showMessage(
+                "شماره تلفن وارد شده صحیح نیست.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        // اگر درست باشد
+        // فرم به Django ارسال می‌شود
+
     }
+);
 
-    if (!isValidPhone(phone)) {
-        showMessage(
-            "شماره تلفن وارد شده صحیح نیست.",
-            "error"
-        );
-        return;
-    }
 
-    const savedUser = localStorage.getItem("user");
+// ======================================
+// انتخاب تب هنگام باز شدن صفحه
+// ======================================
 
-    if (!savedUser) {
-        showMessage(
-            "کاربری با این مشخصات پیدا نشد. ابتدا ثبت نام کنید.",
-            "error"
-        );
-        return;
-    }
+const activeTab =
+    document.body.dataset.activeTab || "login";
 
-    const user = JSON.parse(savedUser);
 
-    if (
-        user.phone !== phone ||
-        user.password !== password
-    ) {
-        showMessage(
-            "شماره تلفن یا رمز عبور اشتباه است.",
-            "error"
-        );
-        return;
-    }
+// ======================================
+// تعیین تب اولیه
+// ======================================
 
-    localStorage.setItem("isLoggedIn", "true");
+if (activeTab === "register") {
 
-    const remember = document.getElementById("remember").checked;
+    showRegisterForm();
 
-    if (remember) {
-        localStorage.setItem("rememberLogin", "true");
-    } else {
-        localStorage.removeItem("rememberLogin");
-    }
+}
+else {
 
-    showMessage(
-        "ورود با موفقیت انجام شد.",
-        "success"
-    );
+    showLoginForm();
 
-    setTimeout(function () {
-        window.location.href = accountUrl;
-    }, 700);
-});
+}
