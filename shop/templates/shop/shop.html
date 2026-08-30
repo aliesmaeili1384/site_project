@@ -106,35 +106,35 @@
 
 <div class="product">
 
-    <!-- محصول 1 -->
+    {% for product in products %}
 
     <div class="prod"
 
-         data-id="1"
+         data-id="{{ product.id }}"
 
-         data-name="ساعت کلاسیک"
+         data-name="{{ product.name }}"
 
-         data-price="250000"
+         data-price="{{ product.price }}"
 
-         data-image="{% static 'shop/images/1.jpg' %}">
+         data-image="{{ product.image.url }}">
 
-        <a href="{% url 'product_detail' 1 %}">
+        <a href="{% url 'product_detail' product.id %}">
 
-            <img src="{% static 'shop/images/1.jpg' %}"
-                 alt="ساعت کلاسیک">
+            <img src="{{ product.image.url }}"
+                 alt="{{ product.name }}">
 
         </a>
 
-        <a href="{% url 'product_detail' 1 %}"
+        <a href="{% url 'product_detail' product.id %}"
            class="name">
 
-            ساعت کلاسیک
+            {{ product.name }}
 
         </a>
 
         <span class="price">
 
-            ۲۵۰,۰۰۰ تومان
+            {{ product.price|floatformat:0 }} تومان
 
         </span>
 
@@ -148,215 +148,13 @@
 
     </div>
 
-    <!-- محصول 2 -->
+    {% empty %}
 
-    <div class="prod"
+    <p>
+        هنوز محصولی ثبت نشده است.
+    </p>
 
-         data-id="2"
-
-         data-name="ساعت اسپرت"
-
-         data-price="320000"
-
-         data-image="{% static 'shop/images/2.jpg' %}">
-
-        <a href="{% url 'product_detail' 2 %}">
-
-            <img src="{% static 'shop/images/2.jpg' %}"
-                 alt="ساعت اسپرت">
-
-        </a>
-
-        <a href="{% url 'product_detail' 2 %}"
-           class="name">
-
-            ساعت اسپرت
-
-        </a>
-
-        <span class="price">
-
-            ۳۲۰,۰۰۰ تومان
-
-        </span>
-
-        <button class="add-cart">
-
-            <i class="fas fa-cart-plus"></i>
-
-            افزودن به سبد
-
-        </button>
-
-    </div>
-
-    <!-- محصول 3 -->
-
-    <div class="prod"
-
-         data-id="3"
-
-         data-name="ساعت لوکس"
-
-         data-price="180000"
-
-         data-image="{% static 'shop/images/3.jpg' %}">
-
-        <a href="{% url 'product_detail' 3 %}">
-
-            <img src="{% static 'shop/images/3.jpg' %}"
-                 alt="ساعت لوکس">
-
-        </a>
-
-        <a href="{% url 'product_detail' 3 %}"
-           class="name">
-
-            ساعت لوکس
-
-        </a>
-
-        <span class="price">
-
-            ۱۸۰,۰۰۰ تومان
-
-        </span>
-
-        <button class="add-cart">
-
-            <i class="fas fa-cart-plus"></i>
-
-            افزودن به سبد
-
-        </button>
-
-    </div>
-
-    <!-- محصول 4 -->
-
-    <div class="prod"
-
-         data-id="4"
-
-         data-name="ساعت طلایی"
-
-         data-price="450000"
-
-         data-image="{% static 'shop/images/4.jpg' %}">
-
-        <a href="{% url 'product_detail' 4 %}">
-
-            <img src="{% static 'shop/images/4.jpg' %}"
-                 alt="ساعت طلایی">
-
-        </a>
-
-        <a href="{% url 'product_detail' 4 %}"
-           class="name">
-
-            ساعت طلایی
-
-        </a>
-
-        <span class="price">
-
-            ۴۵۰,۰۰۰ تومان
-
-        </span>
-
-        <button class="add-cart">
-
-            <i class="fas fa-cart-plus"></i>
-
-            افزودن به سبد
-
-        </button>
-
-    </div>
-
-    <!-- محصول 5 -->
-
-    <div class="prod"
-
-         data-id="5"
-
-         data-name="ساعت مردانه"
-
-         data-price="520000"
-
-         data-image="{% static 'shop/images/5.jpg' %}">
-
-        <a href="{% url 'product_detail' 5 %}">
-
-            <img src="{% static 'shop/images/5.jpg' %}"
-                 alt="ساعت مردانه">
-
-        </a>
-
-        <a href="{% url 'product_detail' 5 %}"
-           class="name">
-
-            ساعت مردانه
-
-        </a>
-
-        <span class="price">
-
-            ۵۲۰,۰۰۰ تومان
-
-        </span>
-
-        <button class="add-cart">
-
-            <i class="fas fa-cart-plus"></i>
-
-            افزودن به سبد
-
-        </button>
-
-    </div>
-
-    <!-- محصول 6 -->
-
-    <div class="prod"
-
-         data-id="6"
-
-         data-name="ساعت زنانه"
-
-         data-price="380000"
-
-         data-image="{% static 'shop/images/6.jpg' %}">
-
-        <a href="{% url 'product_detail' 6 %}">
-
-            <img src="{% static 'shop/images/6.jpg' %}"
-                 alt="ساعت زنانه">
-
-        </a>
-
-        <a href="{% url 'product_detail' 6 %}"
-           class="name">
-
-            ساعت زنانه
-
-        </a>
-
-        <span class="price">
-
-            ۳۸۰,۰۰۰ تومان
-
-        </span>
-
-        <button class="add-cart">
-
-            <i class="fas fa-cart-plus"></i>
-
-            افزودن به سبد
-
-        </button>
-
-    </div>
+    {% endfor %}
 
 </div>
 
