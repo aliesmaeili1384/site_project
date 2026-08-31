@@ -1,6 +1,11 @@
 from django.contrib import admin
 
-from .models import Product, Profile
+from .models import (
+    Product,
+    Profile,
+    Order,
+    OrderItem
+)
 
 
 # ==========================================
@@ -28,7 +33,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 # ==========================================
-# مدیریت کاربران / پروفایل‌ها
+# مدیریت کاربران
 # ==========================================
 
 @admin.register(Profile)
@@ -55,10 +60,6 @@ class ProfileAdmin(admin.ModelAdmin):
     )
 
 
-    # -------------------------------
-    # اطلاعات کاربر
-    # -------------------------------
-
     @admin.display(
         description='نام'
     )
@@ -81,3 +82,76 @@ class ProfileAdmin(admin.ModelAdmin):
     def username(self, obj):
 
         return obj.user.username
+
+
+# ==========================================
+# مدیریت سفارش‌ها
+# ==========================================
+
+@admin.register(Order)
+class OrderAdmin(admin.ModelAdmin):
+
+    list_display = (
+        'id',
+        'user',
+        'total_price_admin',
+        'created_at',
+    )
+
+    search_fields = (
+        'user__username',
+        'user__first_name',
+        'user__last_name',
+    )
+
+    list_filter = (
+        'created_at',
+    )
+
+    ordering = (
+        '-created_at',
+    )
+
+
+    @admin.display(
+        description='مبلغ کل'
+    )
+    def total_price_admin(self, obj):
+
+        return (
+            f"{obj.total_price():,} تومان"
+        )
+
+
+# ==========================================
+# مدیریت کالاهای سفارش
+# ==========================================
+
+@admin.register(OrderItem)
+class OrderItemAdmin(admin.ModelAdmin):
+
+    list_display = (
+        'order',
+        'product_name',
+        'price',
+        'quantity',
+        'total_price_admin',
+    )
+
+    search_fields = (
+        'product_name',
+    )
+
+    list_filter = (
+        'quantity',
+    )
+
+
+    @admin.display(
+        description='مبلغ کل'
+    )
+    def total_price_admin(self, obj):
+
+        return (
+            f"{obj.price * obj.quantity:,} تومان"
+        )

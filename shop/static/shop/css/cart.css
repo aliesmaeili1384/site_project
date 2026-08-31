@@ -539,3 +539,305 @@ body {
         0 0 20px 
         rgba(212, 175, 55, 0.6); 
 }
+
+/* ==========================================
+   چیدمان کاملاً یک ردیفه سبد خرید
+========================================== */
+
+.cart-item {
+    min-height: 150px;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 15px 20px;
+
+    direction: rtl;
+}
+
+
+/* ==========================================
+   عکس
+========================================== */
+
+.cart-item > img {
+
+    width: 120px;
+    height: 120px;
+
+    flex-shrink: 0;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    border: 1px solid #333;
+}
+
+
+/* ==========================================
+   اطلاعات محصول
+========================================== */
+
+.item-info {
+
+    flex: 1;
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    gap: 7px;
+
+}
+
+
+/* نام */
+
+.item-info h2 {
+
+    margin: 0;
+
+    color: silver;
+
+    font-size: 18px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+}
+
+
+/* توضیحات */
+
+.item-info p {
+
+    margin: 0;
+
+    color: #888;
+
+    font-size: 12px;
+
+}
+
+
+/* قیمت واحد */
+
+.item-info > .item-price {
+
+    color: rgb(255, 215, 0);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+}
+
+
+/* ==========================================
+   تعداد
+========================================== */
+
+.cart-item .quantity {
+
+    flex-shrink: 0;
+
+    width: 105px;
+
+    height: 40px;
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 5px;
+
+    background: #111;
+
+    border-radius: 10px;
+}
+
+
+/* دکمه + و - */
+
+.cart-item .quantity button {
+
+    width: 30px;
+
+    height: 30px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0;
+
+    margin: 0;
+
+    line-height: 1;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #222;
+
+    color: rgb(255, 215, 0);
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+
+/* عدد */
+
+.cart-item .quantity span {
+
+    width: 25px;
+
+    min-width: 25px;
+
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+
+/* ==========================================
+   مبلغ کل
+========================================== */
+
+.cart-item > .item-price {
+
+    width: 150px;
+
+    flex-shrink: 0;
+
+    text-align: center;
+
+    color: rgb(255, 215, 0);
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+}
+
+
+/* ==========================================
+   دکمه حذف
+========================================== */
+
+.cart-item > .delete {
+
+    width: 40px;
+
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0;
+
+    margin: 0;
+
+}
+
+
+/* ==========================================
+   موبایل
+========================================== */
+
+@media (max-width: 700px) {
+
+    .cart-item {
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        align-items: center;
+
+    }
+
+
+    .cart-item > img {
+
+        width: 90px;
+
+        height: 90px;
+
+    }
+
+
+    .item-info {
+
+        flex: 1;
+
+        min-width: 150px;
+
+    }
+
+
+    .cart-item .quantity {
+
+        order: 3;
+
+    }
+
+
+    .cart-item > .item-price {
+
+        width: auto;
+
+        order: 4;
+
+    }
+
+
+    .cart-item > .delete {
+
+        order: 5;
+
+    }
+
+}
