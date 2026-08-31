@@ -1,39 +1,39 @@
+
 {% load static %}
 
 <!DOCTYPE html>
-
 <html lang="fa" dir="rtl">
 
 <head>
 
+    <meta charset="UTF-8">
 
-<meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+    <title>جزئیات محصول</title>
 
-<title>جزئیات محصول</title>
+    <link rel="icon"
+          type="image/png"
+          href="{% static 'shop/images/shop.jpg' %}">
 
-<link rel="icon"
-      type="image/png"
-      href="{% static 'shop/images/shop.jpg' %}">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap">
 
-<link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap">
-
-<link rel="stylesheet"
-      href="{% static 'shop/css/product_detail.css' %}">
-
+    <link rel="stylesheet"
+          href="{% static 'shop/css/product_detail.css' %}">
 
 </head>
 
 <body>
 
 
-<!-- سربرگ -->
+<!-- =========================
+     سربرگ
+========================= -->
 
 <header class="header">
 
@@ -43,6 +43,9 @@
              alt="لوگوی فروشگاه">
 
     </div>
+
+
+    <!-- فقط همین دکمه بازگشت باقی می‌ماند -->
 
     <a href="{% url 'shop_home' %}"
        class="back-button">
@@ -56,14 +59,17 @@
 </header>
 
 
-<!-- جزئیات محصول -->
+
+<!-- =========================
+     جزئیات محصول
+========================= -->
 
 <main class="product-detail-container">
 
     <div class="product-detail-box">
 
 
-        <!-- تصویر محصول -->
+        <!-- تصویر -->
 
         <div class="product-image">
 
@@ -73,14 +79,20 @@
         </div>
 
 
-        <!-- اطلاعات محصول -->
+
+        <!-- اطلاعات -->
 
         <div class="product-info">
+
+
+            <!-- نام محصول -->
 
             <h1>
                 {{ product.name }}
             </h1>
 
+
+            <!-- قیمت -->
 
             <div class="product-price">
 
@@ -88,6 +100,9 @@
 
             </div>
 
+
+
+            <!-- توضیحات -->
 
             <div class="product-description">
 
@@ -102,7 +117,8 @@
             </div>
 
 
-            <!-- انتخاب تعداد -->
+
+            <!-- تعداد -->
 
             <div class="quantity-box">
 
@@ -119,11 +135,13 @@
 
                     </button>
 
+
                     <input type="number"
                            id="quantity"
                            value="1"
                            min="1"
                            max="99">
+
 
                     <button type="button"
                             id="increase">
@@ -135,6 +153,7 @@
                 </div>
 
             </div>
+
 
 
             <!-- افزودن به سبد -->
@@ -155,17 +174,6 @@
             </div>
 
 
-            <!-- بازگشت -->
-
-            <a href="{% url 'shop_home' %}"
-               class="back-store">
-
-                <i class="fas fa-arrow-right"></i>
-
-                بازگشت به فروشگاه
-
-            </a>
-
         </div>
 
     </div>
@@ -173,9 +181,15 @@
 </main>
 
 
-<!-- پایین -->
+
+<!-- =========================
+     فوتر
+========================= -->
 
 <footer class="footer">
+
+
+    <!-- فروشگاه -->
 
     <a href="{% url 'shop_home' %}"
        class="footer-item">
@@ -188,6 +202,9 @@
 
     </a>
 
+
+
+    <!-- سبد خرید -->
 
     <a href="{% url 'cart' %}"
        class="footer-item">
@@ -208,7 +225,10 @@
     </a>
 
 
-    <a href="{% url 'login' %}"
+
+    <!-- حساب کاربری -->
+
+    <a href="{% url 'account' %}"
        class="footer-item">
 
         <i class="fas fa-user"></i>
@@ -219,16 +239,17 @@
 
     </a>
 
+
 </footer>
 
 
+
+<!-- اطلاعات محصول برای JavaScript -->
 <script>
-
-    const productId = "{{ product.id }}";
-    const productName = "{{ product.name|escapejs }}";
-    const productPrice = "{{ product.price }}";
-    const productImage = "{{ product.image.url }}";
-
+    window.productId = "{{ product.id }}";
+    window.productName = "{{ product.name|escapejs }}";
+    window.productPrice = "{{ product.price }}";
+    window.productImage = "{{ product.image.url }}";
 </script>
 
 <script src="{% static 'shop/js/product_detail.js' %}"></script>
@@ -237,3 +258,4 @@
 </body>
 
 </html>
+

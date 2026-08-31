@@ -1,153 +1,229 @@
-const params = new URLSearchParams(window.location.search);
 
-const productId = params.get("id");
+document.addEventListener("DOMContentLoaded", function () {
 
-const products = {
-"1": {
-name: "ساعت کلاسیک",
-price: 250000,
-image: "/static/shop/images/1.jpg",
-description: "ساعت کلاسیک با طراحی ساده و شیک، مناسب برای استفاده روزمره و استایل رسمی."
-},
+    // اطلاعات محصول که از Django به HTML فرستاده شده
+    const productId = window.productId;
+    const productName = window.productName;
+    const productPrice = Number(window.productPrice);
+    const productImage = window.productImage;
 
-
-"2": {
-    name: "ساعت اسپرت",
-    price: 320000,
-    image: "/static/shop/images/2.jpg",
-    description: "ساعت اسپرت با طراحی مدرن و جذاب، انتخابی مناسب برای استفاده روزمره و فعالیت‌های مختلف."
-},
-
-"3": {
-    name: "ساعت لوکس",
-    price: 180000,
-    image: "/static/shop/images/3.jpg",
-    description: "ساعت لوکس با طراحی ظریف و چشم‌نواز، مناسب برای افرادی که به استایل و زیبایی اهمیت می‌دهند."
-},
-
-"4": {
-    name: "ساعت طلایی",
-    price: 450000,
-    image: "/static/shop/images/4.jpg",
-    description: "ساعت طلایی با ظاهر خاص و جذاب که جلوه‌ای لوکس به استایل شما می‌بخشد."
-},
-
-"5": {
-    name: "ساعت مردانه",
-    price: 520000,
-    image: "/static/shop/images/5.jpg",
-    description: "ساعت مردانه با طراحی قدرتمند و کلاسیک، مناسب برای استفاده روزانه و موقعیت‌های رسمی."
-},
-
-"6": {
-    name: "ساعت زنانه",
-    price: 380000,
-    image: "/static/shop/images/6.jpg",
-    description: "ساعت زنانه با طراحی ظریف و زیبا، مناسب برای تکمیل استایل‌های مختلف."
-}
+    // عناصر صفحه
+    const quantityInput = document.getElementById("quantity");
+    const increaseButton = document.getElementById("increase");
+    const decreaseButton = document.getElementById("decrease");
+    const addCartButton = document.getElementById("add-cart-button");
+    const message = document.getElementById("product-message");
+    const cartBadge = document.getElementById("cartBadge");
 
 
-};
+    // =========================
+    // تعداد اولیه
+    // =========================
 
-const product = products[productId];
+    let quantity = 1;
 
-const productImage = document.getElementById("product-image");
-const productName = document.getElementById("product-name");
-const productPrice = document.getElementById("product-price");
-const productDescription = document.getElementById("product-description");
-const quantityElement = document.getElementById("quantity");
-const message = document.getElementById("message");
-
-let quantity = 1;
-
-if (product) {
+    quantityInput.value = quantity;
 
 
-productImage.src = product.image;
-productImage.alt = product.name;
+    // =========================
+    // افزایش تعداد
+    // =========================
 
-productName.textContent = product.name;
+    increaseButton.addEventListener("click", function () {
 
-productPrice.textContent =
-    product.price.toLocaleString("fa-IR");
+        if (quantity < 99) {
 
-productDescription.textContent =
-    product.description;
+            quantity++;
 
+            quantityInput.value = quantity;
+        }
 
-} else {
-
-
-productName.textContent = "محصول پیدا نشد";
-
-productDescription.textContent =
-    "محصول مورد نظر وجود ندارد.";
-
-
-}
-
-document.getElementById("increase").addEventListener("click", function () {
-
-
-quantity++;
-
-quantityElement.textContent =
-    quantity.toLocaleString("fa-IR");
-
-
-});
-
-document.getElementById("decrease").addEventListener("click", function () {
-
-
-if (quantity > 1) {
-
-    quantity--;
-
-    quantityElement.textContent =
-        quantity.toLocaleString("fa-IR");
-
-}
-
-
-});
-
-document.getElementById("add-to-cart").addEventListener("click", function () {
-
-
-if (!product) {
-    return;
-}
-
-let cart =
-    JSON.parse(localStorage.getItem("cart")) || [];
-
-const existingProduct =
-    cart.find(item => item.id === productId);
-
-if (existingProduct) {
-
-    existingProduct.quantity += quantity;
-
-} else {
-
-    cart.push({
-        id: productId,
-        name: product.name,
-        price: product.price,
-        image: product.image,
-        quantity: quantity
     });
 
-}
 
-localStorage.setItem(
-    "cart",
-    JSON.stringify(cart)
-);
+    // =========================
+    // کاهش تعداد
+    // =========================
 
-message.textContent =
-    "محصول با موفقیت به سبد خرید اضافه شد.";
+    decreaseButton.addEventListener("click", function () {
 
+        if (quantity > 1) {
+
+            quantity--;
+
+            quantityInput.value = quantity;
+        }
+
+    });
+
+
+    // =========================
+    // تغییر دستی تعداد
+    // =========================
+
+    quantityInput.addEventListener("input", function () {
+
+        let value = parseInt(quantityInput.value);
+
+        if (isNaN(value) || value < 1) {
+
+            value = 1;
+
+        }
+
+        if (value > 99) {
+
+            value = 99;
+
+        }
+
+        quantity = value;
+
+        quantityInput.value = quantity;
+    });
+
+
+    // =========================
+    // خواندن سبد خرید
+    // =========================
+
+    function getCart() {
+
+        try {
+
+            return JSON.parse(
+                localStorage.getItem("cart")
+            ) || [];
+
+        } catch (error) {
+
+            return [];
+
+        }
+
+    }
+
+
+    // =========================
+    // ذخیره سبد خرید
+    // =========================
+
+    function saveCart(cart) {
+
+        localStorage.setItem(
+            "cart",
+            JSON.stringify(cart)
+        );
+
+    }
+
+
+    // =========================
+    // بروزرسانی عدد سبد
+    // =========================
+
+    function updateCartBadge() {
+
+        const cart = getCart();
+
+        let totalQuantity = 0;
+
+        cart.forEach(function (item) {
+
+            totalQuantity += Number(item.quantity) || 0;
+
+        });
+
+
+        if (cartBadge) {
+
+            cartBadge.textContent =
+                totalQuantity.toLocaleString("fa-IR");
+
+        }
+
+    }
+
+
+    // =========================
+    // افزودن به سبد خرید
+    // =========================
+
+    addCartButton.addEventListener("click", function () {
+
+        if (!productId) {
+
+            return;
+
+        }
+
+
+        let cart = getCart();
+
+
+        // پیدا کردن محصول موجود
+        const existingProduct = cart.find(function (item) {
+
+            return String(item.id) === String(productId);
+
+        });
+
+
+        if (existingProduct) {
+
+            existingProduct.quantity =
+                Number(existingProduct.quantity) + quantity;
+
+        } else {
+
+            cart.push({
+
+                id: String(productId),
+
+                name: productName,
+
+                price: productPrice,
+
+                image: productImage,
+
+                quantity: quantity
+
+            });
+
+        }
+
+
+        // ذخیره
+        saveCart(cart);
+
+
+        // نمایش پیام
+        message.textContent =
+            "محصول با موفقیت به سبد خرید اضافه شد.";
+
+
+        message.style.opacity = "1";
+
+
+        // بروزرسانی تعداد سبد
+        updateCartBadge();
+
+
+        // بعد از 3 ثانیه پیام حذف شود
+        setTimeout(function () {
+
+            message.textContent = "";
+
+        }, 3000);
+
+    });
+
+
+    // =========================
+    // اجرای اولیه
+    // =========================
+
+    updateCartBadge();
 
 });
+
