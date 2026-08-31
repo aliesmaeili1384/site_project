@@ -1,18 +1,11 @@
-
 * {
-
     margin: 0;
-
     padding: 0;
-
     box-sizing: border-box;
-
 }
 
 body {
-
     min-height: 100vh;
-
     background:
         linear-gradient(
             135deg,
@@ -24,608 +17,377 @@ body {
             #d4af37,
             black
         );
-
     font-family:
         'Vazirmatn',
         Tahoma,
         sans-serif;
-
     color: white;
-
 }
 
 .header {
-
     height: 110px;
-
     background: black;
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     border-bottom:
         2px solid
         #d4af37;
-
     box-shadow:
         0 4px 20px
         rgba(212, 175, 55, 0.6);
-
 }
-
 
 .logo img {
-
     width: 180px;
-
     height: 119px;
-
     object-fit: contain;
-
-    margin-top: 5pxS;
+    margin-top: 5px;
 }
 
-
 .account-container {
-
     min-height:
         calc(100vh - 110px);
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     padding: 40px 20px;
-
 }
 
 .account-box {
-
     width: 500px;
-
     max-width: 100%;
-
     background: #050505;
-
     border:
         2px solid
         #d4af37;
-
     border-radius: 25px;
-
     padding: 40px;
-
     text-align: center;
-
     box-shadow:
-
         0 15px 40px
         rgba(0, 0, 0, 0.8),
-
         0 0 25px
         rgba(212, 175, 55, 0.35);
-
 }
 
 .user-icon {
-
     width: 90px;
-
     height: 90px;
-
     margin:
         0 auto 20px;
-
     border:
         2px solid
         #d4af37;
-
     border-radius: 50%;
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     color: #d4af37;
-
     font-size: 40px;
-
     box-shadow:
         0 0 20px
         rgba(212, 175, 55, 0.2);
-
 }
-
 
 .account-box h1 {
-
     color: #d4af37;
-
     font-size: 28px;
-
     margin-bottom: 8px;
-
 }
 
-
 .welcome {
-
     color: #999;
-
     font-size: 14px;
-
     margin-bottom: 30px;
-
 }
 
 .user-info {
-
     display: flex;
-
     flex-direction: column;
-
     gap: 12px;
-
 }
 
-
 .info-item {
-
     background: #111;
-
     border:
         1px solid
         #292929;
-
     border-right:
         3px solid
         #d4af37;
-
     border-radius: 12px;
-
     padding: 15px;
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
 }
-
 
 .info-item div {
-
     display: flex;
-
     align-items: center;
-
     gap: 10px;
-
 }
-
 
 .info-item i {
-
     color: #d4af37;
-
 }
-
 
 .info-item span {
-
     color: #aaa;
-
     font-size: 13px;
-
 }
 
-
 .info-item strong {
-
     color: white;
-
     font-size: 13px;
-
     direction: rtl;
-
 }
 
 .account-message {
-
     min-height: 25px;
-
     margin-top: 15px;
-
     font-size: 13px;
-
 }
-
 
 .account-message.success {
-
     color: #65d66f;
-
 }
 
-
 .account-message.error {
-
     color: #ff6565;
-
 }
 
 .account-actions {
-
     margin-top: 25px;
-
     display: flex;
-
     flex-direction: column;
-
     gap: 10px;
-
 }
 
-
-.account-actions button {
-
+.account-actions button,
+.account-actions a {
     width: 100%;
-
     height: 48px;
-
     border: none;
-
     border-radius: 11px;
-
     background: #111;
-
     color: white;
-
     font-family:
         'Vazirmatn',
         Tahoma,
         sans-serif;
-
     font-size: 14px;
-
     cursor: pointer;
-
     transition: 0.3s;
-
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
 }
 
-
-.account-actions button i {
-
+.account-actions button i,
+.account-actions a i {
     color: #d4af37;
-
     margin-left: 8px;
-
 }
 
-
-.account-actions button:hover {
-
+.account-actions button:hover,
+.account-actions a:hover {
     background: #1c1c1c;
-
     transform:
         translateY(-3px);
-
     box-shadow:
         0 0 15px
         rgba(212, 175, 55, 0.2);
-
+    text-decoration: none;
 }
 
 .account-actions .logout {
-
-    background: #211010;
-
-    color: #ffaaaa;
-
+    background: #211010 !important;
+    color: #ffaaaa !important;
+    text-decoration: none !important;
 }
-
 
 .account-actions .logout i {
-
-    color: #ff5555;
-
+    color: #ff5555 !important;
 }
 
+.account-actions .logout:hover,
+.account-actions .logout:focus,
+.account-actions .logout:visited,
+.account-actions .logout:active {
+    background: #321515 !important;
+    color: #ffcccc !important;
+    text-decoration: none !important;
 
-.account-actions .logout:hover {
-
-    background: #321515;
+    transform: translateY(-3px);
 
     box-shadow:
         0 0 15px
-        rgba(255, 50, 50, 0.2);
-
+        rgba(255, 50, 50, 0.25);
 }
 
-
 .edit-form {
-
     display: none;
-
     margin-top: 25px;
-
     padding-top: 25px;
-
     border-top:
         1px solid
         #292929;
-
     flex-direction: column;
-
     gap: 15px;
-
 }
-
 
 .edit-form.show {
-
     display: flex;
-
 }
-
 
 .edit-form h2 {
-
     color: #d4af37;
-
     font-size: 20px;
-
     margin-bottom: 5px;
-
 }
-
 
 .edit-input-box {
-
     position: relative;
-
     width: 100%;
-
 }
-
 
 .edit-input-box i {
-
     position: absolute;
-
     right: 15px;
-
     top: 50%;
-
     transform:
         translateY(-50%);
-
     color: #d4af37;
-
     font-size: 16px;
-
 }
 
-
 .edit-input-box input {
-
     width: 100%;
-
     height: 48px;
-
     background: #111;
-
     border:
         1px solid
         #333;
-
     border-radius: 10px;
-
     outline: none;
-
     color: white;
-
     font-family:
         'Vazirmatn',
         Tahoma,
         sans-serif;
-
     font-size: 14px;
-
     padding:
         0 45px
         15px;
-
     transition: 0.3s;
-
 }
 
-
 .edit-input-box input:focus {
-
     border-color:
         #d4af37;
-
     box-shadow:
         0 0 10px
         rgba(212, 175, 55, 0.2);
-
 }
-
 
 .edit-input-box input::placeholder {
-
     color: #777;
-
 }
-
 
 .edit-actions {
-
     display: flex;
-
     gap: 10px;
-
     margin-top: 5px;
-
 }
 
-
 .edit-actions button {
-
     flex: 1;
-
     height: 45px;
-
     border: none;
-
     border-radius: 10px;
-
     font-family:
         'Vazirmatn',
         Tahoma,
         sans-serif;
-
     font-size: 13px;
-
     font-weight: 700;
-
     cursor: pointer;
-
     transition: 0.3s;
-
 }
 
-
 .save-button {
-
     background:
         linear-gradient(
             135deg,
             #d4af37,
             #b89424
         );
-
     color: black;
-
 }
 
-
 .save-button:hover {
-
     transform:
         translateY(-2px);
-
     box-shadow:
         0 0 15px
         rgba(212, 175, 55, 0.5);
-
 }
-
 
 .cancel-button {
-
     background: #222;
-
     color: #ccc;
-
 }
-
 
 .cancel-button:hover {
-
     background: #333;
-
     color: white;
-
 }
-
 
 .back-store {
-
     display: inline-block;
-
     margin-top: 25px;
-
     color: #aaa;
-
     text-decoration: none;
-
     font-size: 13px;
-
     transition: 0.3s;
-
 }
-
 
 .back-store i {
-
     color: #d4af37;
-
     margin-left: 7px;
-
 }
-
 
 .back-store:hover {
-
     color: #d4af37;
-
 }
 
-
 @media (max-width: 550px) {
-
     .account-box {
-
         padding: 30px 20px;
-
         border-radius: 20px;
-
     }
-
 
     .account-box h1 {
-
         font-size: 24px;
-
     }
-
 
     .user-icon {
-
         width: 75px;
-
         height: 75px;
-
         font-size: 32px;
-
     }
 
-
     .info-item {
-
         flex-direction: column;
-
         align-items: flex-start;
-
         gap: 8px;
-
     }
 
     .edit-actions {
-
         flex-direction: column;
-
     }
-
 }

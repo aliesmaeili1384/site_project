@@ -40,6 +40,7 @@
 
 <header class="header">
 
+
 <div class="logo">
 
     <img src="{% static 'shop/images/logo.png' %}"
@@ -47,11 +48,13 @@
 
 </div>
 
+
 </header>
 
 <!-- معرفی -->
 
 <section class="hero">
+
 
 <div class="hero-content">
 
@@ -89,6 +92,7 @@
 
 </button>
 
+
 </section>
 
 <!-- محصولات -->
@@ -96,11 +100,13 @@
 <section class="product-section"
          id="products">
 
+
 <h2 class="products-title">
 
     محصولات برگزیده
 
 </h2>
+
 
 <!-- شبکه محصولات -->
 
@@ -125,6 +131,7 @@
 
         </a>
 
+
         <a href="{% url 'product_detail' product.id %}"
            class="name">
 
@@ -132,11 +139,13 @@
 
         </a>
 
+
         <span class="price">
 
             {{ product.price|floatformat:0 }} تومان
 
         </span>
+
 
         <button class="add-cart">
 
@@ -158,11 +167,13 @@
 
 </div>
 
+
 </section>
 
 <!-- پاورقی -->
 
 <footer class="footer">
+
 
 <!-- فروشگاه -->
 
@@ -176,6 +187,7 @@
     </span>
 
 </a>
+
 
 <!-- سبد خرید -->
 
@@ -197,9 +209,10 @@
 
 </a>
 
+
 <!-- حساب کاربری -->
 
-<a href="{% url 'login' %}"
+<a href="{% if user.is_authenticated %}{% url 'account' %}{% else %}{% url 'login' %}{% endif %}"
    class="footer-item">
 
     <i class="fas fa-user"></i>
@@ -209,6 +222,7 @@
     </span>
 
 </a>
+
 
 </footer>
 
