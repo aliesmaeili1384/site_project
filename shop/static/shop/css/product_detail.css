@@ -5,11 +5,28 @@
 }
 
 body {
+  background: linear-gradient(
+    135deg,
+    black,
+    #d4af37,
+    black,
+    black,
+    #d4af37,
+    black,
+    black,
+    #d4af37,
+    black,
+    black
+  );
+  background-size: cover;
+  background-attachment: fixed;
   font-family: "Vazirmatn", sans-serif;
-  background: linear-gradient(135deg, #050505, #151515, #2a2108);
-  color: #fff;
+  direction: rtl;
+  color: #ffffff;
   min-height: 100vh;
   padding-bottom: 110px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .header {
@@ -24,8 +41,8 @@ body {
 }
 
 .logo img {
-  width: 95px;
-  height: 95px;
+  width: 180px;
+  height: 119px;
   object-fit: contain;
 }
 
@@ -56,6 +73,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
+  align-items: start;
   background: rgba(10, 10, 10, 0.95);
   border: 1px solid #d4af37;
   border-radius: 20px;
@@ -84,7 +102,7 @@ body {
 .product-info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .product-info h1 {
@@ -132,7 +150,13 @@ body {
   font-weight: 700;
 }
 
-.quantity-box button {
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.quantity-control button {
   width: 40px;
   height: 40px;
   border: 1px solid #d4af37;
@@ -143,7 +167,7 @@ body {
   transition: 0.3s;
 }
 
-.quantity-box button:hover {
+.quantity-control button:hover {
   background: #d4af37;
   color: #000;
 }
@@ -153,6 +177,7 @@ body {
   text-align: center;
   color: #fff;
   font-size: 20px;
+  user-select: none;
 }
 
 .add-cart-button {
@@ -269,8 +294,8 @@ body {
   }
 
   .logo img {
-    width: 75px;
-    height: 75px;
+    width: 180px;
+    height: 119px;
   }
 
   .back-button {

@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
 
     // اطلاعات محصول که از Django به HTML فرستاده شده
@@ -8,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const productImage = window.productImage;
 
     // عناصر صفحه
-    const quantityInput = document.getElementById("quantity");
+    const quantityDisplay = document.getElementById("quantity");
     const increaseButton = document.getElementById("increase");
     const decreaseButton = document.getElementById("decrease");
     const addCartButton = document.getElementById("add-cart-button");
@@ -22,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let quantity = 1;
 
-    quantityInput.value = quantity;
+    quantityDisplay.textContent = quantity;
 
 
     // =========================
@@ -35,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             quantity++;
 
-            quantityInput.value = quantity;
+            quantityDisplay.textContent = quantity;
         }
 
     });
@@ -51,35 +50,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             quantity--;
 
-            quantityInput.value = quantity;
+            quantityDisplay.textContent = quantity;
         }
 
-    });
-
-
-    // =========================
-    // تغییر دستی تعداد
-    // =========================
-
-    quantityInput.addEventListener("input", function () {
-
-        let value = parseInt(quantityInput.value);
-
-        if (isNaN(value) || value < 1) {
-
-            value = 1;
-
-        }
-
-        if (value > 99) {
-
-            value = 99;
-
-        }
-
-        quantity = value;
-
-        quantityInput.value = quantity;
     });
 
 
@@ -147,11 +120,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // =========================
     // افزودن به سبد خرید
+    // (با جلوگیری از کلیک تکراری)
     // =========================
+
+    let isAdding = false;
 
     addCartButton.addEventListener("click", function () {
 
+        if (isAdding) {
+
+            return;
+
+        }
+
+        isAdding = true;
+
+        addCartButton.disabled = true;
+
+
         if (!productId) {
+
+            isAdding = false;
+
+            addCartButton.disabled = false;
 
             return;
 
@@ -216,6 +207,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }, 3000);
 
+
+        // بعد از یک ثانیه دوباره دکمه فعال شود
+        setTimeout(function () {
+
+            isAdding = false;
+
+            addCartButton.disabled = false;
+
+        }, 1000);
+
     });
 
 
@@ -226,4 +227,3 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCartBadge();
 
 });
-
