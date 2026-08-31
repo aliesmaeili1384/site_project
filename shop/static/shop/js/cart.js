@@ -17,6 +17,7 @@ function getCart() {
         return [];
 
     }
+
 }
 
 
@@ -40,13 +41,14 @@ function saveCart(cart) {
 
 function formatPrice(price) {
 
-    return Number(price).toLocaleString("fa-IR") + " تومان";
+    return Number(price).toLocaleString("fa-IR")
+        + " تومان";
 
 }
 
 
 // ==========================================
-// تبدیل عدد به فارسی
+// تبدیل اعداد انگلیسی به فارسی
 // ==========================================
 
 function toPersianNumber(number) {
@@ -93,7 +95,7 @@ function renderCart() {
 
 
     // ======================================
-    // سبد خالی
+    // اگر سبد خالی باشد
     // ======================================
 
     if (cart.length === 0) {
@@ -121,11 +123,14 @@ function renderCart() {
         `;
 
 
-        cartCount.textContent = "۰ کالا";
+        cartCount.textContent =
+            "۰ کالا";
 
-        cartSubtotal.textContent = "۰ تومان";
+        cartSubtotal.textContent =
+            "۰ تومان";
 
-        cartTotal.textContent = "۰ تومان";
+        cartTotal.textContent =
+            "۰ تومان";
 
 
         return;
@@ -134,7 +139,7 @@ function renderCart() {
 
 
     // ======================================
-    // پاک کردن محتوای قبلی
+    // پاک کردن محصولات قبلی
     // ======================================
 
     cartProducts.innerHTML = "";
@@ -155,6 +160,7 @@ function renderCart() {
             const quantity =
                 Number(item.quantity) || 1;
 
+
             const price =
                 Number(item.price) || 0;
 
@@ -168,6 +174,10 @@ function renderCart() {
             subtotal += itemTotal;
 
 
+            // ==================================
+            // HTML هر محصول
+            // ==================================
+
             const productHTML = `
 
                 <div
@@ -175,8 +185,7 @@ function renderCart() {
                     data-index="${index}"
                 >
 
-
-                    <!-- تصویر محصول -->
+                    <!-- تصویر -->
 
                     <img
                         src="${item.image || ''}"
@@ -189,7 +198,7 @@ function renderCart() {
                     <div class="item-info">
 
                         <h2>
-                            ${item.name || 'محصول'}
+                            ${item.name || "محصول"}
                         </h2>
 
 
@@ -204,52 +213,57 @@ function renderCart() {
 
                         </div>
 
-
-                        <!-- تعداد -->
-
-                        <div class="quantity">
-
-
-                            <!-- کاهش -->
-
-                            <button
-                                type="button"
-                                class="quantity-minus"
-                                data-index="${index}"
-                            >
-                                −
-                            </button>
-
-
-                            <!-- تعداد -->
-
-                            <span>
-                                ${toPersianNumber(quantity)}
-                            </span>
-
-
-                            <!-- افزایش -->
-
-                            <button
-                                type="button"
-                                class="quantity-plus"
-                                data-index="${index}"
-                            >
-                                +
-                            </button>
-
-
-                        </div>
-
-
                     </div>
 
 
                     <!-- مبلغ کل محصول -->
 
-                    <div class="item-price">
+                    <div class="item-total">
 
                         ${formatPrice(itemTotal)}
+
+                    </div>
+
+
+                    <!-- کنترل تعداد -->
+
+                    <div class="quantity">
+
+                        <!-- کاهش -->
+
+                        <button
+                            type="button"
+                            class="quantity-minus"
+                            data-index="${index}"
+                            title="کاهش تعداد"
+                        >
+
+                            −
+
+                        </button>
+
+
+                        <!-- تعداد -->
+
+                        <span>
+
+                            ${toPersianNumber(quantity)}
+
+                        </span>
+
+
+                        <!-- افزایش -->
+
+                        <button
+                            type="button"
+                            class="quantity-plus"
+                            data-index="${index}"
+                            title="افزایش تعداد"
+                        >
+
+                            +
+
+                        </button>
 
                     </div>
 
@@ -266,7 +280,6 @@ function renderCart() {
                         <i class="fas fa-trash"></i>
 
                     </button>
-
 
                 </div>
 
@@ -443,7 +456,7 @@ function decreaseQuantity(index) {
     quantity--;
 
 
-    // اگر تعداد به صفر رسید
+    // اگر تعداد صفر شد
     // محصول حذف شود
 
     if (quantity <= 0) {
@@ -500,7 +513,7 @@ function deleteItem(index) {
 
 
 // ==========================================
-// دریافت CSRF
+// دریافت CSRF از Cookie
 // ==========================================
 
 function getCookie(name) {
@@ -564,7 +577,7 @@ function checkout() {
 
 
     // ======================================
-    // بررسی خالی بودن سبد
+    // سبد خالی
     // ======================================
 
     if (cart.length === 0) {
@@ -591,7 +604,7 @@ function checkout() {
     }
 
 
-    // جلوگیری از چند بار کلیک
+    // جلوگیری از کلیک چندباره
 
     checkoutButton.disabled = true;
 
@@ -606,7 +619,7 @@ function checkout() {
 
 
     // ======================================
-    // فقط ID و تعداد ارسال می‌شود
+    // آماده کردن اطلاعات سفارش
     // ======================================
 
     const orderCart =
@@ -630,7 +643,7 @@ function checkout() {
 
 
     // ======================================
-    // ارسال به Django
+    // ارسال سفارش به Django
     // ======================================
 
     fetch(
@@ -698,7 +711,7 @@ function checkout() {
 
 
             // ==================================
-            // کاربر وارد نشده
+            // نیاز به ورود
             // ==================================
 
             if (
@@ -746,7 +759,7 @@ function checkout() {
                 );
 
 
-                // رفتن به فروشگاه
+                // برگشت به فروشگاه
 
                 window.location.href =
                     "/";
@@ -758,7 +771,7 @@ function checkout() {
 
 
             // ==================================
-            // خطا
+            // خطای ثبت سفارش
             // ==================================
 
             alert(
@@ -784,7 +797,7 @@ function checkout() {
 
 
     // ======================================
-    // خطای ارتباط
+    // خطای ارتباط با سرور
     // ======================================
 
     .catch(
@@ -820,7 +833,7 @@ function checkout() {
 
 
 // ==========================================
-// شروع
+// اجرای اولیه
 // ==========================================
 
 document.addEventListener(

@@ -841,3 +841,199 @@ body {
     }
 
 }
+
+/* ==========================================
+   چیدمان نهایی کارت محصول
+========================================== */
+
+.cart-item {
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    gap: 20px;
+
+    min-height: 150px;
+
+}
+
+
+/* تصویر */
+
+.cart-item > img {
+
+    width: 120px;
+
+    height: 120px;
+
+    flex-shrink: 0;
+
+}
+
+
+/* اطلاعات */
+
+.cart-item .item-info {
+
+    flex: 1;
+
+    min-width: 0;
+
+}
+
+
+/* مبلغ کل */
+
+.cart-item .item-total {
+
+    width: 140px;
+
+    flex-shrink: 0;
+
+    text-align: center;
+
+    color: rgb(255, 215, 0);
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+}
+
+
+/* تعداد */
+
+.cart-item .quantity {
+
+    width: 105px;
+
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 5px;
+
+    background: #111;
+
+    border-radius: 10px;
+
+}
+
+
+/* دکمه های + و - */
+
+.cart-item .quantity button {
+
+    width: 30px;
+
+    height: 30px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0;
+
+    margin: 0;
+
+}
+
+
+/* عدد */
+
+.cart-item .quantity span {
+
+    width: 25px;
+
+    min-width: 25px;
+
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/* دکمه حذف */
+
+.cart-item > .delete {
+
+    width: 40px;
+
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0;
+
+    margin: 0;
+
+}
+
+
+/* ==========================================
+   موبایل
+========================================== */
+
+@media (max-width: 700px) {
+
+    .cart-item {
+
+        flex-wrap: wrap;
+
+    }
+
+
+    .cart-item > img {
+
+        width: 90px;
+
+        height: 90px;
+
+    }
+
+
+    .cart-item .item-info {
+
+        flex: 1;
+
+        min-width: 150px;
+
+    }
+
+
+    .cart-item .item-total {
+
+        width: auto;
+
+    }
+
+}
+
