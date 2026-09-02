@@ -427,7 +427,6 @@ function increaseQuantity(index) {
 
     saveCart(cart);
 
-
     renderCart();
 
 }
@@ -466,7 +465,9 @@ function decreaseQuantity(index) {
             1
         );
 
-    } else {
+    }
+
+    else {
 
         cart[index].quantity =
             quantity;
@@ -475,7 +476,6 @@ function decreaseQuantity(index) {
 
 
     saveCart(cart);
-
 
     renderCart();
 
@@ -506,8 +506,15 @@ function deleteItem(index) {
 
     saveCart(cart);
 
-
     renderCart();
+
+
+    // پیام موفقیت
+
+    showMessage(
+        "محصول از سبد خرید حذف شد",
+        "success"
+    );
 
 }
 
@@ -534,7 +541,8 @@ function getCookie(name) {
             let cookie of cookies
         ) {
 
-            cookie = cookie.trim();
+            cookie =
+                cookie.trim();
 
 
             if (
@@ -582,8 +590,9 @@ function checkout() {
 
     if (cart.length === 0) {
 
-        alert(
-            "سبد خرید شما خالی است."
+        showMessage(
+            "سبد خرید شما خالی است.",
+            "error"
         );
 
         return;
@@ -604,7 +613,9 @@ function checkout() {
     }
 
 
+    // ======================================
     // جلوگیری از کلیک چندباره
+    // ======================================
 
     checkoutButton.disabled = true;
 
@@ -719,13 +730,21 @@ function checkout() {
                 data.redirect
             ) {
 
-                alert(
-                    "برای تکمیل خرید ابتدا وارد حساب کاربری شوید."
+                showMessage(
+                    "برای تکمیل خرید ابتدا وارد حساب کاربری شوید.",
+                    "error"
                 );
 
 
-                window.location.href =
-                    data.redirect;
+                setTimeout(
+                    function () {
+
+                        window.location.href =
+                            data.redirect;
+
+                    },
+                    1500
+                );
 
 
                 return;
@@ -739,15 +758,15 @@ function checkout() {
 
             if (data.success) {
 
-                alert(
+                showMessage(
 
-                    "خرید شما با موفقیت ثبت شد.\n\n"
-                    +
-                    "شماره سفارش: "
+                    "خرید شما با موفقیت ثبت شد - شماره سفارش: "
                     +
                     toPersianNumber(
                         data.order_id
-                    )
+                    ),
+
+                    "success"
 
                 );
 
@@ -759,10 +778,18 @@ function checkout() {
                 );
 
 
-                // برگشت به فروشگاه
+                // رفتن به سفارش‌ها
+                // بعد از نمایش پیام
 
-                window.location.href =
-                    "/";
+                setTimeout(
+                    function () {
+
+                        window.location.href =
+                            "/orders/";
+
+                    },
+                    1500
+                );
 
 
                 return;
@@ -774,11 +801,17 @@ function checkout() {
             // خطای ثبت سفارش
             // ==================================
 
-            alert(
+            showMessage(
+
                 data.message ||
-                "خطایی هنگام ثبت سفارش رخ داد."
+                "خطایی هنگام ثبت سفارش رخ داد.",
+
+                "error"
+
             );
 
+
+            // فعال کردن دوباره دکمه
 
             checkoutButton.disabled =
                 false;
@@ -809,8 +842,9 @@ function checkout() {
             );
 
 
-            alert(
-                "ارتباط با سرور برقرار نشد."
+            showMessage(
+                "ارتباط با سرور برقرار نشد.",
+                "error"
             );
 
 
@@ -860,4 +894,114 @@ document.addEventListener(
 
     }
 );
+
+
+// ==========================================
+// نمایش پیام
+//
+// success = موفقیت → سبز
+// error   = خطا → قرمز
+// warning = هشدار → طلایی
+// ==========================================
+
+function showMessage(
+    text,
+    type = "success"
+) {
+
+    const message =
+        document.createElement("div");
+
+
+    message.className =
+        "cart-message " + type;
+
+
+    // ======================================
+    // آیکون
+    // ======================================
+
+    let icon = "";
+
+
+    if (type === "success") {
+
+        icon =
+            '<i class="fas fa-circle-check"></i>';
+
+    }
+
+    else if (type === "error") {
+
+        icon =
+            '<i class="fas fa-circle-xmark"></i>';
+
+    }
+
+    else if (type === "warning") {
+
+        icon =
+            '<i class="fas fa-triangle-exclamation"></i>';
+
+    }
+
+
+    // ======================================
+    // متن پیام
+    // ======================================
+
+    message.innerHTML =
+        icon +
+        '<span>' +
+        text +
+        '</span>';
+
+
+    document.body.appendChild(
+        message
+    );
+
+
+    // ======================================
+    // نمایش
+    // ======================================
+
+    setTimeout(
+        function () {
+
+            message.classList.add(
+                "show"
+            );
+
+        },
+        10
+    );
+
+
+    // ======================================
+    // حذف پیام
+    // ======================================
+
+    setTimeout(
+        function () {
+
+            message.classList.remove(
+                "show"
+            );
+
+
+            setTimeout(
+                function () {
+
+                    message.remove();
+
+                },
+                300
+            );
+
+        },
+        2500
+    );
+
+}
 

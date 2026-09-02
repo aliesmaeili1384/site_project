@@ -1,0 +1,447 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        سفارش‌های من
+    </title>
+
+
+    <!-- آیکون سایت -->
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="{% static 'shop/images/logo.png' %}"
+    >
+
+
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+
+
+    <!-- فونت وزیر -->
+
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap"
+    >
+
+
+    <!-- CSS سفارش ها -->
+
+    <link
+        rel="stylesheet"
+        href="{% static 'shop/css/orders.css' %}"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     هدر
+========================================== -->
+
+<header class="header">
+
+
+    <!-- لوگو -->
+
+    <div class="logo">
+
+        <img
+            src="{% static 'shop/images/logo.png' %}"
+            alt="لوگوی فروشگاه"
+        >
+
+    </div>
+
+
+    <!-- برگشت به حساب -->
+
+    <a
+        href="{% url 'account' %}"
+        class="back-button"
+    >
+
+        <i class="fas fa-arrow-right"></i>
+
+        حساب کاربری
+
+    </a>
+
+
+</header>
+
+
+
+<!-- ==========================================
+     محتوای اصلی
+========================================== -->
+
+<main class="orders-container">
+
+
+    <!-- عنوان -->
+
+    <div class="orders-title">
+
+        <i class="fas fa-shopping-bag"></i>
+
+        <h1>
+            سفارش‌های من
+        </h1>
+
+    </div>
+
+
+
+    <!-- ========================================
+         اگر سفارش وجود داشته باشد
+    ========================================= -->
+
+    {% if orders %}
+
+
+        <div class="orders-list">
+
+
+            {% for order in orders %}
+
+
+                <!-- =================================
+                     باکس هر سفارش
+                ================================= -->
+
+                <div class="order-box">
+
+
+                    <!-- ---------------------------------
+                         سربرگ سفارش
+                    ---------------------------------- -->
+
+                    <div class="order-header">
+
+
+                        <!-- شماره سفارش -->
+
+                        <div class="order-number">
+
+                            <i class="fas fa-receipt"></i>
+
+                            <span>
+                                سفارش شماره
+                            </span>
+
+                            <strong>
+                                #{{ order.id }}
+                            </strong>
+
+                        </div>
+
+
+                        <!-- تاریخ سفارش -->
+
+                        <div class="order-date">
+
+                            <i class="far fa-calendar"></i>
+
+                            {{ order.created_at|date:"Y/m/d - H:i" }}
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- ---------------------------------
+                         محصولات سفارش
+                    ---------------------------------- -->
+
+                    <div class="order-items">
+
+
+                        {% for item in order.items.all %}
+
+
+                            <div class="order-item">
+
+
+                                <!-- تصویر محصول -->
+
+                                <div class="order-image">
+
+
+                                    {% if item.image %}
+
+                                        <img
+                                            src="{{ item.image }}"
+                                            alt="{{ item.product_name }}"
+                                        >
+
+                                    {% else %}
+
+                                        <div class="no-image">
+
+                                            <i class="fas fa-image"></i>
+
+                                        </div>
+
+                                    {% endif %}
+
+
+                                </div>
+
+
+
+                                <!-- اطلاعات محصول -->
+
+                                <div class="order-item-info">
+
+
+                                    <h2>
+                                        {{ item.product_name }}
+                                    </h2>
+
+
+                                    <p>
+
+                                        قیمت واحد:
+
+                                        <strong>
+                                            {{ item.price|floatformat:0 }}
+                                        </strong>
+
+                                        تومان
+
+                                    </p>
+
+
+                                </div>
+
+
+
+                                <!-- تعداد -->
+
+                                <div class="order-quantity">
+
+                                    <span>
+                                        تعداد
+                                    </span>
+
+                                    <strong>
+                                        {{ item.quantity }}
+                                    </strong>
+
+                                </div>
+
+
+
+                                <!-- قیمت کل محصول -->
+
+                                <div class="order-item-total">
+
+                                    <span>
+                                        مبلغ
+                                    </span>
+
+                                    <strong>
+
+                                        {{ item.total_price|floatformat:0 }}
+
+                                        تومان
+
+                                    </strong>
+
+                                </div>
+
+
+                            </div>
+
+
+                        {% endfor %}
+
+
+                    </div>
+
+
+
+                    <!-- ---------------------------------
+                         پایین سفارش
+                    ---------------------------------- -->
+
+                    <div class="order-footer">
+
+
+                        <!-- وضعیت -->
+
+                        <div class="order-status">
+
+                            <i class="fas fa-circle-check"></i>
+
+                            ثبت شده
+
+                        </div>
+
+
+                        <!-- مبلغ کل -->
+
+                        <div class="order-total">
+
+                            <span>
+                                مبلغ کل:
+                            </span>
+
+                            <strong>
+
+                                {{ order.total_price|floatformat:0 }}
+
+                                تومان
+
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            {% endfor %}
+
+
+        </div>
+
+
+    <!-- ========================================
+         اگر سفارش وجود نداشته باشد
+    ========================================= -->
+
+    {% else %}
+
+
+        <div class="empty-orders">
+
+
+            <div class="empty-icon">
+
+                <i class="fas fa-box-open"></i>
+
+            </div>
+
+
+            <h2>
+                هنوز سفارشی ثبت نکرده‌اید
+            </h2>
+
+
+            <p>
+                بعد از ثبت سفارش، محصولات خریداری‌شده
+                در این قسمت نمایش داده می‌شوند.
+            </p>
+
+
+            <a
+                href="{% url 'shop_home' %}"
+                class="shop-button"
+            >
+
+                <i class="fas fa-store"></i>
+
+                مشاهده محصولات
+
+            </a>
+
+
+        </div>
+
+
+    {% endif %}
+
+
+</main>
+
+
+
+<!-- ==========================================
+     فوتر
+========================================== -->
+
+<footer class="footer">
+
+
+    <!-- فروشگاه -->
+
+    <a
+        href="{% url 'shop_home' %}"
+        class="footer-item"
+    >
+
+        <i class="fas fa-store"></i>
+
+        <span>
+            فروشگاه
+        </span>
+
+    </a>
+
+
+    <!-- سبد خرید -->
+
+    <a
+        href="{% url 'cart' %}"
+        class="footer-item"
+    >
+
+        <i class="fas fa-shopping-cart"></i>
+
+        <span>
+            سبد خرید
+        </span>
+
+    </a>
+
+
+    <!-- حساب -->
+
+    <a
+        href="{% url 'account' %}"
+        class="footer-item active"
+    >
+
+        <i class="fas fa-user"></i>
+
+        <span>
+            حساب کاربری
+        </span>
+
+    </a>
+
+
+</footer>
+
+
+</body>
+
+</html>

@@ -1037,3 +1037,121 @@ body {
 
 }
 
+
+
+.cart-message {
+
+    position: fixed;
+
+    top: 125px;
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        translateY(-20px);
+
+    background: #050505;
+
+    min-width: 300px;
+
+    padding: 14px 25px;
+
+    border: 2px solid;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    text-align: center;
+
+    font-family:
+        'Vazirmatn',
+        Tahoma,
+        sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+
+    z-index: 99999;
+
+    pointer-events: none;
+}
+
+
+
+.cart-message.show {
+
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+
+}
+
+
+
+.cart-message.success {
+
+    color: #00d26a;
+
+    border-color: #00d26a;
+
+    box-shadow:
+        0 5px 20px
+        rgba(0, 0, 0, 0.7),
+
+        0 0 20px
+        rgba(0, 210, 106, 0.35);
+}
+
+
+.cart-message.error {
+
+    color: #ff4444;
+
+    border-color: #ff4444;
+
+    box-shadow:
+        0 5px 20px
+        rgba(0, 0, 0, 0.7),
+
+        0 0 20px
+        rgba(255, 68, 68, 0.35);
+}
+
+
+.cart-message.warning {
+
+    color: #d4af37;
+
+    border-color: #d4af37;
+
+    box-shadow:
+        0 5px 20px
+        rgba(0, 0, 0, 0.7),
+
+        0 0 20px
+        rgba(212, 175, 55, 0.35);
+}
+
+
+
+.cart-message i {
+
+    font-size: 18px;
+
+}
