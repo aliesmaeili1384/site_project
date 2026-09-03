@@ -30,26 +30,19 @@ body {
 
     color: white;
 
-    background:
-
-        radial-gradient(
-            circle at top right,
-            rgba(212, 175, 55, 0.15),
-            transparent 35%
-        ),
-
-        radial-gradient(
-            circle at bottom left,
-            rgba(212, 175, 55, 0.10),
-            transparent 35%
-        ),
-
-        linear-gradient(
-            135deg,
-            #030303,
-            #101010,
-            #050505
-        );
+    background: linear-gradient(
+        135deg,
+        black,
+        #d4af37,
+        black,
+        black,
+        #d4af37,
+        black,
+        black,
+        #d4af37,
+        black,
+        black
+    );
 
 }
 
@@ -208,7 +201,7 @@ body {
 
     font-size: 32px;
 
-    color: #d4af37;
+     color: rgb(255, 215, 0); 
 
     text-shadow:
         0 0 15px rgba(212, 175, 55, 0.5);
@@ -220,7 +213,7 @@ body {
 
     font-size: 30px;
 
-    color: #d4af37;
+     color: rgb(255, 215, 0); 
 
     font-weight: 700;
 
